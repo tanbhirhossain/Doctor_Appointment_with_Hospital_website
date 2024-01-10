@@ -11,7 +11,7 @@
     <div class="page_banner_img">
        <img src="../wp-content/uploads/2019/09/doctors-page-header-img.html" alt="Meet Our Specialists">
     </div>
-    <div class="page_banner_content  overlay" style="background-image: url(../wp-content/themes/medizco/assets/images/banner/page-banner-bg.png);; --banner-overlay-color: rgba(221,17,17,0.8); --banner-breadcumb-color: #dd3333">
+    <div class="page_banner_content  overlay" style="background-image: url({{asset('front/wp/wp-content/themes/medizco/assets/images/banner/page-banner-bg.png') }});; --banner-overlay-color: rgba(221,17,17,0.8); --banner-breadcumb-color: #dd3333">
        <div class="container d-lg-flex justify-content-between">
           <h1 class="page_banner_title">
              Meet Our Specialists            

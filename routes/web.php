@@ -15,6 +15,10 @@ Route::get('/', function () {
     // return view('front.layouts.template_doctor');
 });
 
+Route::get('/c', function(){
+    return view('front.layouts.template_dr_details');
+});
+
 Route::get('/doctors', [FrontDoctorController::class, 'index']);
 Route::get('/doctors/{slug}', [FrontDoctorController::class, 'show'])->name('doctor.details');
 Route::get('test', function(){

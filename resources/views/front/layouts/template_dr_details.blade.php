@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-      <title>Dr. Syeda Zinia Zafrin   MBBS (DMC), MRCP (UK), MRCPE (Glassgow) &#8211; AMZ Hospital Ltd. | For amazing Care</title>
+      <title>Asst. Prof. Md. Motashimul Hasan Shiplu   MBBS , MS (NEUROSURGERY) , FELLOW  &#8211; AMZ Hospital Ltd. | For amazing Care</title>
       <link href="https://fonts.googleapis.com/css?family=Roboto%3Aregular%2C400%2C700%2C900%7CExo%3A700%2C400%2C900" rel="stylesheet">
       <meta name='robots' content='max-image-preview:large' />
       <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
@@ -61,7 +59,7 @@
       <link rel='stylesheet' id='amelia-elementor-widget-font-css' href="{{ asset('front/wp/wp-content/plugins/ameliabooking/public/css/frontend/elementor91d5.css?ver=5.4') }}" type='text/css' media='all' />
       <link rel='stylesheet' id='elementor-pro-css' href="{{ asset('front/wp/wp-content/plugins/elementor-pro/assets/css/frontend.minac9e.css?ver=3.7.7') }}" type='text/css' media='all' />
       <link rel='stylesheet' id='elementor-global-css' href="{{ asset('front/wp/wp-content/uploads/elementor/css/global3e92.css?ver=1696328969') }}" type='text/css' media='all' />
-      <link rel='stylesheet' id='elementor-post-7488-css' href="{{ asset('front/wp/wp-content/uploads/elementor/css/post-748836be.css?ver=1697865162') }}" type='text/css' media='all' />
+      <link rel='stylesheet' id='elementor-post-7567-css' href="{{ asset('front/wp/wp-content/uploads/elementor/css/post-75671ae5.css?ver=1696373517') }}" type='text/css' media='all' />
       <link rel='stylesheet' id='font-awesome-5-all-css' href="{{ asset('front/wp/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.mina1c3.css?ver=3.14.1') }}" type='text/css' media='all' />
       <link rel='stylesheet' id='font-awesome-4-shim-css' href="{{ asset('front/wp/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.mina1c3.css?ver=3.14.1') }}" type='text/css' media='all' />
       <link rel='stylesheet' id='elementor-post-5438-css' href="{{ asset('front/wp/wp-content/uploads/elementor/css/post-54384066.css?ver=1696328976') }}" type='text/css' media='all' />
@@ -101,25 +99,25 @@
       <link rel='stylesheet' id='elementor-icons-fa-brands-css' href="{{ asset('front/wp/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min52d5.css?ver=5.15.3') }}" type='text/css' media='all' />
       <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
       <script type='text/javascript' src="{{ asset('front/wp/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.mina1c3.js?ver=3.14.1') }}" id='font-awesome-4-shim-js'></script>
-      <script type='text/javascript' src="{{ asset('front/wp/wp-content/js/jquery/jquery.min3088.js?ver=3.7.0') }}" id='jquery-core-js'></script>
-      <script type='text/javascript' src="{{ asset('front/wp/wp-content/js/jquery/jquery-migrate.min5589.js?ver=3.4.1') }}" id='jquery-migrate-js'></script>
+      <script type='text/javascript' src="{{ asset('front/wp/wp-includes/js/jquery/jquery.min3088.js?ver=3.7.0') }}" id='jquery-core-js'></script>
+      <script type='text/javascript' src="{{ asset('front/wp/wp-includes/js/jquery/jquery-migrate.min5589.js?ver=3.4.1') }}" id='jquery-migrate-js'></script>
       <script type='text/javascript' src="{{ asset('front/wp/wp-content/plugins/medizco-essential/modules/parallax/assets/js/jarallax20b9.js?ver=1.0.2') }}" id='jarallax-js'></script>
-      <link rel="https://api.w.org/" href="{{ asset('front/wp/wp-json/index.html')}}" />
+      <link rel="https://api.w.org/" href="../../../wp-json/index.html" />
       <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../../../xmlrpc0db0.php?rsd" />
       <meta name="generator" content="WordPress 6.3.1" />
       <link rel="canonical" href="index.html" />
-      <link rel='shortlink' href='../../../index05f2.html?p=7488' />
-      <link rel="alternate" type="application/json+oembed" href="{{ asset('front/wp/wp-json/oembed/1.0/embedf0d8.json?url=https%3A%2F%2Famzhospitalbd.com%2Fblog%2Fdoctor%2Fdr-zinia-zafrin%2F') }}" />
-      <link rel="alternate" type="text/xml+oembed" href="{{ asset('front/wp/wp-json/oembed/1.0/embede148?url=https%3A%2F%2Famzhospitalbd.com%2Fblog%2Fdoctor%2Fdr-zinia-zafrin%2F&amp;format=xml') }}" />
+      <link rel='shortlink' href='../../../indexf2a6.html?p=7567' />
+      <link rel="alternate" type="application/json+oembed" href="../../../wp-json/oembed/1.0/embed6dbe.json?url=https%3A%2F%2Famzhospitalbd.com%2Fblog%2Fdoctor%2Fasst-prof-md-motashimul-hasan-shiplu%2F" />
+      <link rel="alternate" type="text/xml+oembed" href="../../../wp-json/oembed/1.0/embedc217?url=https%3A%2F%2Famzhospitalbd.com%2Fblog%2Fdoctor%2Fasst-prof-md-motashimul-hasan-shiplu%2F&amp;format=xml" />
       <meta name="cdp-version" content="1.4.0" />
       <meta name="generator" content="Elementor 3.14.1; features: a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
       <script type="text/javascript">
          var elementskit_section_parallax_data = {};
-         var elementskit_module_parallax_url = "{{ asset('front/wp/wp-content/plugins/medizco-essential/modules/parallax/index.html') }}"
+         var elementskit_module_parallax_url = "../../../wp-content/plugins/medizco-essential/modules/parallax/index.html"
       </script>
-      <link rel="icon" href="{{ asset('front/wp/wp-content/uploads/2022/12/cropped-Logo-Full-1-32x32.png')}} " sizes="32x32" />
-      <link rel="icon" href="{{ asset('front/wp/wp-content/uploads/2022/12/cropped-Logo-Full-1-192x192.png') }}" sizes="192x192" />
-      <link rel="apple-touch-icon" href="{{ asset('front/wp/wp-content/uploads/2022/12/cropped-Logo-Full-1-180x180.png') }}" />
+      <link rel="icon" href="../../../wp-content/uploads/2022/12/cropped-Logo-Full-1-32x32.png" sizes="32x32" />
+      <link rel="icon" href="../../../wp-content/uploads/2022/12/cropped-Logo-Full-1-192x192.png" sizes="192x192" />
+      <link rel="apple-touch-icon" href="../../../wp-content/uploads/2022/12/cropped-Logo-Full-1-180x180.png" />
       <meta name="msapplication-TileImage" content="https://amzhospitalbd.com/wp-content/uploads/2022/12/cropped-Logo-Full-1-270x270.png" />
       <style type="text/css" id="wp-custom-css">
          .img-fluid {
@@ -141,31 +139,30 @@
          }		
       </style>
       <style type="text/css" media="screen">.is-menu path.search-icon-path { fill: #dd3333;}body .popup-search-close:after, body .search-close:after { border-color: #dd3333;}body .popup-search-close:before, body .search-close:before { border-color: #dd3333;}</style>
+
+      @yield('css')
    </head>
-   <body class="medizco-doctor-template medizco-doctor-template-template medizco-doctor-template-template-page medizco-doctor-template-templatetemplate-page-php single single-medizco-doctor postid-7488 medizco sidebar-inactive elementor-default elementor-kit-4824 elementor-page elementor-page-7488">
+   <body class="medizco-doctor-template-default single single-medizco-doctor postid-7567 medizco sidebar-inactive elementor-default elementor-kit-4824 elementor-page elementor-page-7567">
       <div data-elementor-type="header" data-elementor-id="5438" class="elementor elementor-5438 elementor-location-header">
          <div class="elementor-section-wrap">
+ 
+            <!--TopBar -->
+            @include('front.layouts.components.topbar')
+            <!--Logo Bar -->
+            @include('front.layouts.components.logobar')
+            <!--NavBar -->
+            @include('front.layouts.components.navbar')
            
-              <!--TopBar -->
-              @include('front.layouts.components.topbar')
-              <!--Logo Bar -->
-              @include('front.layouts.components.logobar')
-              <!--NavBar -->
-              @include('front.layouts.components.navbar')
-
          </div>
       </div>
       
-      <!-- .page-contents -->
-      @yield('page-content')
-                 
-    
-   
 
+      @yield('page-content')
       @include('front.layouts.components.footer')
       @include('front.layouts.components.whatsapp')
-
       @include('front.layouts.components.body_js')
 
-   </body>
-   </html>
+      @yield('js')
+
+   </body> 
+</html>
