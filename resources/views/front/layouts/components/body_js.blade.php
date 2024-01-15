@@ -75,3 +75,6 @@
 <script type='text/javascript' src="{{ asset('front/wp/wp-content/themes/medizco/assets/js/widget-scripts-pro98a9.js?ver=2.9') }}" id='medizco-widget-scripts-pro-js'></script>
 <script type='text/javascript' src="{{ asset('front/wp/wp-content/plugins/elementor/assets/js/preloaded-modules.mina1c3.js?ver=3.14.1') }}" id='preloaded-modules-js'></script>
 <script type='text/javascript' src="{{ asset('front/wp/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.minac9e.js?ver=3.7.7') }}" id='e-sticky-js'></script>
+
+<script src="{{asset('front/wp/wp-content\plugins\ameliabooking\public\js\frontend\amelia-booking91d5.js') }}"></script>
+<script src="{{asset('front/wp/wp-content\plugins\ameliabooking\v3\public\assets\public.dfb5affb91d5.js') }}"></script>

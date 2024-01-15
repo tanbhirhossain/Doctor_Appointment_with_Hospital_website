@@ -11,43 +11,14 @@
 @endphp
 
 
+
+
 @extends('front.layouts.template_dr_details')
 
 @section('css')
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-<style>
-   .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .review-section {
-            background-color: #f2f2f2;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .review-label {
-            font-weight: bold;
-        }
-
-        .review-value {
-            margin-left: 10px;
-        }
-
-        .btn-primary,
-        .btn-secondary,
-        .btn-success {
-            margin-top: 10px;
-        }
-</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
 
 @endsection
 
@@ -387,155 +358,44 @@
                                                </div>
                                                
                                                <!-- Booking Calender -->
-                                               <div class="mx-auto my-4" id="">
-                                                
-                                                
-                                                   
-                                                <div id="app">
-                                                  
-                                                   <form id="bookingForm">
-                                                      <!-- Step 1: Input Information -->
-                                                      <div class="step" id="step1">
-                                                          <div class="row">
-                                                              <div class="form-group col-md-6">
-                                                                  <input class="form-control" type="date" name="date" placeholder="Select Date" required>
-                                                              </div>
-                                                              <div class="form-group col-md-6">
-                                                                  <select class="form-control" name="time" required>
-                                                                      <option value="">05:00 PM</option>
-                                                                      <option value="">05:15 PM</option>
-                                                                      <option value="">05:30 PM</option>
-                                                                      <option value="">05:45 PM</option>
-                                                                  </select>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <input class="form-control" type="text" name="name" placeholder="Enter Name" required>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <input class="form-control" type="email" name="email" placeholder="Enter Email" required>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <input class="form-control" type="text" name="phone" placeholder="Enter Phone" required>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <button type="button" onclick="showStep(2)" class="btn btn-block btn-primary">Next</button>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  
-                                                      <!-- Step 2: Review Information -->
-                                                     <!-- Step 2: Review Information -->
-                                                      <div class="step container" id="step2" style="display: none; ">
-                                                         {{-- <h2>Booking Details</h2> --}}
-                                                         <div class="card">
-                                                         <div class="card-header">
-                                                            Booing Confirmation
-                                                         </div>
-
-                                                         <div class="card-body">
-                                                            <div class="row mb-4">
-                                                               <div class="col-sm-6">
-                                                               <h6 class="mb-3">From:</h6>
-                                                               <div>
-                                                               <strong>   <time datetime="2024-01-14">January 14, 2024</time>
-                                                               </strong>
-                                                               </div>
-                                                               <div id="reviewName"></div>
-                                                               <div>71-101 Szczecin, Poland</div>
-                                                               <div id="reviewEmail"></div>
-                                                               <div id="reviewPhone"></div>
-                                                               </div>
-                                                            </div>
-
-                                                            <div class="col-sm-6">
-                                                               
-                                                         </div>  
-                                                               <div class="table-responsive-sm">
-                                                                  <table class="table table-striped">
-                                                                     <thead>
-                                                                        <tr>
-                                                                           <th class="center">#</th>
-                                                                           <th>Department</th>
-                                                                           <th>Desc</th>
-                                                                           <th class="right">Fee</th>
-                                                                        </tr>
-                                                                     </thead>
-                                                                     <tbody>
-                                                                        <tr>
-                                                                           <td class="center">1</td>
-                                                                           <td class="left strong">Dental</td>
-                                                                           <td class="left">Dr Muradology (MBBS , FCPS, FRCS ,MCPE)</td>
-                                                                           <td class="right">TK 1000.00</td>
-                                                                       
-                                                                        </tr>
-                                                                       
-                                                                     </tbody>
-                                                                  </table>
-                                                               </div>
-                                                               <div class="row">
-                                                                  <div class="col-lg-4 col-sm-5">
-                                                                  </div>
-                                                                  <div class="col-lg-4 col-sm-5 ml-auto">
-                                                                     <table class="table table-clear">
-                                                                        <tbody>
-                                                                           {{-- <tr>
-                                                                              <td class="left">
-                                                                                 <strong>Subtotal</strong>
-                                                                              </td>
-                                                                              <td class="right">$8.497,00</td>
-                                                                           </tr>
-                                                                           <tr>
-                                                                              <td class="left">
-                                                                                 <strong>Discount (20%)</strong>
-                                                                              </td>
-                                                                              <td class="right">$1,699,40</td>
-                                                                           </tr>
-                                                                           <tr>
-                                                                              <td class="left">
-                                                                                 <strong>VAT (10%)</strong>
-                                                                              </td>
-                                                                              <td class="right">$679,76</td>
-                                                                           </tr>
-                                                                           <tr>
-                                                                              <td class="left">
-                                                                                 <strong>Total</strong>
-                                                                              </td>
-                                                                              <td class="right">
-                                                                                 <strong>$7.477,36</strong>
-                                                                              </td>
-                                                                           </tr> --}}
-                                                                        </tbody>
-                                                                     </table>
-                                                                  </div>
-                                                               </div>
-                                                            <div class="review-section">
-                                                              
-                                                               <p class="review-value" id="reviewDate"></p>
-
-                                                               <p class="review-value" id="reviewTime"></p>
-
-                                                             
-                                                               <p class="review-value" id="reviewName"></p>
-
-                                                               
-                                                               <p class="review-value" id="reviewEmail"></p>
-
-                                                             
-                                                               <p class="review-value" id="reviewPhone"></p>
-                                                            </div>
-                                                         </div>
-
-                                                         <div class="form-group col-md-12">
-                                                            <button type="button" onclick="showStep(1)" class="btn btn-block btn-secondary">Back</button>
-                                                            <button type="submit" class="btn btn-block btn-success">Confirm Booking</button>
-                                                         </div>
-                                                         </div>
-                                                      </div>
-                                                   </form>
-                                                </div>
-                                           
-                                               </div>
+                                               <div class="mx-auto" id="app">
+                                                <v-app class="bg-[#3866b4]">
+                                                    <v-content>
+                                                        <v-container>
+                                                            @verbatim
+                                                            <v-row class="" justify="center" style="display: grid; grid-template-columns: 1fr;">
+                                                                <section class="">
+                                                                    <v-row class="" justify="center">
+                                                                        <v-date-picker class="" v-model="dateTest" scrollable @input="dateSelected" :allowed-dates="allowedDates">
+                                                                            <div class="flex-grow-1"></div>
+                                                                        </v-date-picker>
+                                                                        <v-slide-y-transition class="">
+                                                                            <v-col cols="4" v-show="dateTest !== null">
+                                                                                <v-btn-group v-if="timeSlots.length > 0" v-model="time" class="my-2" column>
+                                                                                    <v-btn v-for="allowedTime in timeSlots" :key="allowedTime"
+                                                                                        @click="setTime(allowedTime)" :outlined="allowedTime !== time" x-large
+                                                                                        color="primary">{{ allowedTime }}</v-btn>
+                                                                                </v-btn-group>
+                                                                            </v-col>
+                                                                        </v-slide-y-transition>
+                                                                    </v-row>
+                                                                </section>
                                             
+                                                                <!-- Form Section -->
+                                                                <section v-show="dateTest !== null && time !== null" class="mx-8">
+                                                                    <v-form>
+                                                                        <v-text-field v-model="formData.name" label="Name"></v-text-field>
+                                                                        <v-text-field v-model="formData.email" label="Email"></v-text-field>
+                                                                        <v-text-field v-model="formData.phone" label="Phone"></v-text-field>
+                                                                        <v-btn @click="submitForm" color="primary">Submit</v-btn>
+                                                                    </v-form>
+                                                                </section>
+                                                            </v-row>
+                                                            @endverbatim
+                                                        </v-container>
+                                                    </v-content>
+                                                </v-app>
+                                            </div>
                                              </div>
                                          </div>
                                       </div>
@@ -583,24 +443,44 @@
 </div>
 
 @endsection
-`
+
 
 @section('js')
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script>
-   function showStep(step) {
-       if (step === 2) {
-           // Retrieve values from step 1 and display in step 2
-           document.getElementById('reviewDate').textContent = document.getElementsByName('date')[0].value;
-           document.getElementById('reviewTime').textContent = document.getElementsByName('time')[0].value;
-           document.getElementById('reviewName').textContent = document.getElementsByName('name')[0].value;
-           document.getElementById('reviewEmail').textContent = document.getElementsByName('email')[0].value;
-           document.getElementById('reviewPhone').textContent = document.getElementsByName('phone')[0].value;
-       }
-       document.getElementById('step1').style.display = (step === 1) ? 'block' : 'none';
-       document.getElementById('step2').style.display = (step === 2) ? 'block' : 'none';
-   }
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data: () => ({
+            dateTest: null,
+            time: null,
+            timeSlots: [],
+            formData: {
+                name: '',
+                email: '',
+                phone: '',
+            },
+        }),
+        computed: {
+            allowedTimes() {
+                return ['08:15pm', '08:30pm', '08:45am', '09:00pm', '09:15pm', '09:30pm', '09:45pm', '10:00pm'];
+            },
+        },
+        methods: {
+            allowedDates: val => parseInt(val.split('-')[2], 10) % 2 === 0,
+            dateSelected() {
+                // Set available time slots based on the selected date
+                // Here, you can customize how time slots are determined based on the selected date
+                this.timeSlots = this.allowedTimes;
+            },
+            setTime(time) {
+                this.time = time;
+            },
+            submitForm() {
+                // Handle form submission here, you can access form data in this.formData
+            },
+        },
+    });
 </script>
-
 @endsection
-
