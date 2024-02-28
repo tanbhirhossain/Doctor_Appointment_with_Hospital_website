@@ -60,6 +60,8 @@
             <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
               <input value="{{ old('name') }}" type="text" id="name" name="name" placeholder="Name *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
               <input value="{{ old('slug') }}" type="text" id="slug" name="slug" placeholder="Slug *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
+              <input value="{{ old('meta_description') }}" type="text" id="meta_description" name="meta_description" placeholder="Meta Description " class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
+
               <input value="{{ old('phone') }}" type="text" id="phone" name="phone" placeholder="Phone " class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
               <input value="{{ old('email') }}" type="email" id="email" name="email" placeholder="E-mail" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
               <select id="department_id" name="department_id" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
@@ -70,12 +72,15 @@
                 
               </select>
               <input value="{{ old('qualification') }}" type="text" id="qualification" name="qualification" placeholder="Qualification *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
+              <input value="{{ old('speciality') }}" type="text" id="speciality" name="speciality" placeholder="speciality *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
+
               <input value="{{ old('designation') }}" type="text" id="designation" name="designation" placeholder="Designation *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
               <input value="{{ old('institute') }}" type="text" id="institute" name="institute" placeholder="Institute *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
               <input value="{{ old('visit_fee') }}" type="number" id="visit_fee" name="visit_fee" placeholder="Visiting fees *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
               <input value="{{ old('image') }}" type="file" id="image" name="image" placeholder="Select Doctors Photo" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
 
-              
+              <input value="{{ old('chamber_location') }}" type="text" id="chamber_location" name="chamber_location" placeholder="chamber_location *" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700 ">
+
            
               <div class="md:col-span-2">
                 <textarea name="biography" rows="5" cols="" placeholder="Biography " class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">{{ old('biography') }}</textarea>

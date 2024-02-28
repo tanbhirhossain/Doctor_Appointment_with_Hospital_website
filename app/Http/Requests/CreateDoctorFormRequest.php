@@ -28,12 +28,26 @@ class CreateDoctorFormRequest extends FormRequest
             'qualification' => 'nullable|string',
             'designation' => 'nullable|string',
             'institute' => 'nullable|string',
+
+            //UPDATED
+            'speciality' => 'nullable|string',
+            'chamber_location' => 'string|required',
+            'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:200',
+            'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:200',
+            'image_4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:200',
+            'meta_description' => 'nullable|string',
+            
+
             'biography' => 'nullable|string',
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
             'visit_fee' => 'nullable|numeric',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:200',
             'slug' => 'required|unique:doctors',
+            // 'slug' => [
+            //     'required',
+            //     Rule::unique('doctors')->ignore($this->id), // Assuming $this->id contains the current doctor's ID
+            // ],
 
            // Ensure uniqueness for each day and doctor
            'day.*.day' => [
@@ -48,6 +62,10 @@ class CreateDoctorFormRequest extends FormRequest
         
             'day.*.start_time' => 'nullable|date_format:H:i',
             'day.*.end_time' => 'nullable|date_format:H:i|after:day.*.start_time',
+         // Ensure correct time format (H:i) for start_time and end_time
+        //  'day.*.start_time' => 'nullable|date_format:H:i:s',
+        //  'day.*.end_time' => 'nullable|date_format:H:i:s',
+
             'day.*.remarks' => 'nullable|string',
         ];
     }

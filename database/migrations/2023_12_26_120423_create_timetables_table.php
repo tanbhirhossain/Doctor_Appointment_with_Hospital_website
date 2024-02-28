@@ -20,7 +20,10 @@ return new class extends Migration
             $table->unsignedBigInteger('department_id')->nullable();
             $table->text('remarks')->nullable();
             $table->unsignedBigInteger('created_by');
-            $table->foreign('doctor_id')->references('id')->on('doctors');
+
+
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+
             $table->foreign('department_id')->references('id')->on('departments');
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();

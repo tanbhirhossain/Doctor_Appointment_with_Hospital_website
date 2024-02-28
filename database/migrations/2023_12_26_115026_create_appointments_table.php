@@ -17,11 +17,18 @@ return new class extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->datetime('start_time');
             $table->datetime('end_time');
-            $table->string('patient_name')->nullable();
-            $table->string('phone')->nullable();
-            $table->text('remarks')->nullable();
-            $table->string('ip_address')->nullable();
+
+            $table->string('patient_name');
+            $table->string('phone');
+            $table->string('email')->nullable();
+            $table->string('chamber_location')->nullable();
+            $table->string('visit_fee')->nullable();
+            $table->string('doctor_name')->nullable();
+
             $table->string('serial_no')->nullable();
+            $table->text('remarks')->nullable();
+
+            $table->string('ip_address')->nullable();
 
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->foreign('doctor_id')->references('id')->on('doctors');

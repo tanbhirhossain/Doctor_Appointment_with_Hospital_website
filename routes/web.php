@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\Front\FrontAppointmentController;
 use App\Http\Controllers\Front\FrontDoctorController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Doctor;
@@ -8,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //FRONT ROUTES
+Route::get('/get-doctor-timetable', [FrontDoctorController::class, 'getDoctorTimetable']);
 
 
 Route::get('/', function () {
@@ -20,6 +22,14 @@ Route::get('/c', function(){
 });
 
 Route::get('/doctors', [FrontDoctorController::class, 'index']);
+//Appointments
+Route::post('/doctors/appointments', [FrontAppointmentController::class, 'store'])->name('front.booking.store');
+
+
+
+Route::get('/doctor-check', function(){
+    return view('front.layouts.medicoz_doctor');
+});
 Route::get('/doctors/{slug}', [FrontDoctorController::class, 'show'])->name('doctor.details');
 Route::get('test', function(){
     return view('front.layouts.template_dr_details');
@@ -49,4 +59,14 @@ Route::get('/admin', function(){
 
 Route::prefix('admin')->group(function (){
     Route::resource('doctors', DoctorController::class);
+    // Route::get('/doctors/search', 'DoctorController@search')->name('doctors.search');
+
+
+});
+Route::get('/doctors/search', [DoctorController::class, 'search'])->name('doctors.search');
+
+
+Route::get('/api/murad', function(){
+    $doctor = Doctor::with(['department', 'timetable'])->Where('slug', 'dr.-md-murad-hossain')->first();
+    return $doctor;
 });

@@ -1,606 +1,447 @@
-@php
-    $dayMappings = [
-        'sun' => 'Sunday',
-        'mon' => 'Monday',
-        'tue' => 'Tuesday',
-        'wed' => 'Wednesday',
-        'thu' => 'Thursday',
-        'fri' => 'Friday',
-        'sat' => 'Saturday',
-    ];
-@endphp
-
-
-@extends('front.layouts.template_dr_details')
-
+@extends('front.layouts.medicoz_master')
+@section('page-title', 'AMZ Hospital Ltd. | For amazing Care &#8211; Uttar Badda , Dhaka-1212')
 @section('css')
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+{{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+<!-- Bootstrap Datepicker CSS -->
 <style>
-   .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .review-section {
-            background-color: #f2f2f2;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .review-label {
-            font-weight: bold;
-        }
-
-        .review-value {
-            margin-left: 10px;
-        }
-
-        .btn-primary,
-        .btn-secondary,
-        .btn-success {
-            margin-top: 10px;
-        }
-</style>
-
-@endsection
-
-@section('page-content')
-
-<div class="page_banner">
-  <div class="page_banner_img">
-     <img src="{{ asset('front/wp/wp-content/themes/medizco/assets/images/banner/page-banner-img.jpg') }}" width="1920" height="400" class="w-100" alt="Asst. Prof. Md. Motashimul Hasan Shiplu <br> <h6 class="page_banner_title_h6"> MBBS , MS (NEUROSURGERY) , FELLOW </h6>" >    
-  </div>
-  <div class="page_banner_content  overlay" style="background-image: url({{ asset('front/wp/wp-content/themes/medizco/assets/images/banner/page-banner-bg.png') }});; --banner-overlay-color: rgba(193,5,5,0.76); --banner-breadcumb-color: #dd3333">
-     <div class="container d-lg-flex justify-content-between">
-        <h1 class="page_banner_title">
-           {{ $doctor->name }} <br> 
-           <h6 class="page_banner_title_h6"> {{ $doctor->qualification }} </h6>
-        </h1>
-        <ul class="medizco_breadcrumblist d-inline-flex flex-wrap flex-lg-nowrap align-items-center">
-           <li class="curves left"></li>
-           <li class="curves right"></li>
-           <li><a href="{{ url('/') }}">Home</a></li>
-           <li class="seperator">-</li>
-           <li>Doctor</li>
-           <li class="seperator">-</li>
-           <li>
-              {{ $doctor->name }} <br> 
-              <h6 class="page_banner_title_h6"> {{ $doctor->qualification }} </h6>
-           </li>
-        </ul>
-     </div>
-  </div>
-</div>
-
-<!-- .medizco_banner -->
-<div id="main-content" class="main-container blog-single"  role="main">
-  <div class="container">
-     <div class="row">
-        <div class="col-lg-12">
-           <article id="post-7567" class="post-content post-single post-7567 medizco-doctor type-medizco-doctor status-publish has-post-thumbnail hentry medizco-departments-all-departments medizco-departments-neuro-surgery">
-              <div class="post-media post-image">
-                 <img width="350" height="300" src="{{ asset($doctor->image) }}" class="img-fluid" alt="Asst. Prof. Md. Motashimul Hasan Shiplu &lt;br&gt; &lt;h6 class=&quot;page_banner_title_h6&quot;&gt; MBBS , MS (NEUROSURGERY) , FELLOW &lt;/h6&gt;" decoding="async" loading="lazy" srcset="https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Md._Motashimul_Hasan__Shiplu_-removebg-preview__1_-removebg-preview.png 350w, https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Md._Motashimul_Hasan__Shiplu_-removebg-preview__1_-removebg-preview-300x257.png 300w, https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Md._Motashimul_Hasan__Shiplu_-removebg-preview__1_-removebg-preview-200x171.png 200w" sizes="(max-width: 350px) 100vw, 350px" />                     
-              </div>
-              <div class="post-body clearfix">
-                 <!-- Article header -->
-                 <header class="entry-header clearfix">
-                    <div class="post-meta">
-                       <span class="post-author"><i class="fa fa-user"></i> <a href="{{ asset('front/wp/author/tanbhirit/index.html') }}">Tanbhir Hossain</a></span> <span class="post-comment"><i class="fa fa-comment"></i><a href="#" class="comments-link"></a>0</span>	
-                    </div>
-                 </header>
-                 <!-- header end -->
-                 <!-- Article content -->
-                 <div class="entry-content clearfix">
-                    <div data-elementor-type="wp-post" data-elementor-id="7567" class="elementor elementor-7567">
-                       <div class="elementor-inner">
-                          <div class="elementor-section-wrap">
-                             <section class="elementor-section elementor-top-section elementor-element elementor-element-49d9 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="49d9" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
-                                <div class="elementor-container elementor-column-gap-default">
-                                   <div class="elementor-row">
-                                      <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-47a1" data-id="47a1" data-element_type="column">
-                                         <div class="elementor-column-wrap elementor-element-populated">
-                                            <div class="elementor-widget-wrap">
-                                               <div class="elementor-element elementor-element-3408 medizco_doctor_featured_img elementor-widget elementor-widget-image" data-id="3408" data-element_type="widget" data-widget_type="image.default">
-                                                  <div class="elementor-widget-container">
-                                                     <div class="elementor-image">
-                                                        <figure class="wp-caption">
-                                                           <a href="#book">
-                                                           <img decoding="async" width="350" height="300" src="{{ asset($doctor->image) }}" class="attachment-medium_large size-medium_large wp-image-11244" alt="" srcset="{{ asset($doctor->image) }}" sizes="(max-width: 350px) 100vw, 350px" />								</a>
-                                                           <figcaption class="widget-image-caption wp-caption-text">Get Appointment</figcaption>
-                                                        </figure>
-                                                     </div>
-                                                  </div>
-                                               </div>
-                                            </div>
-                                         </div>
-                                      </div>
-                                      <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7c20 elementor-hidden-tablet elementor-hidden-mobile" data-id="7c20" data-element_type="column">
-                                         <div class="elementor-column-wrap elementor-element-populated">
-                                            <div class="elementor-widget-wrap">
-                                               <div class="elementor-element elementor-element-15c826b elementor-widget elementor-widget-medizco-doctor-info" data-id="15c826b" data-element_type="widget" data-widget_type="medizco-doctor-info.default">
-                                                  <div class="elementor-widget-container">
-                                                     <div class="medizco-doctor-info">
-                                                        <table>
-                                                           <tbody>
-                                                              <tr>
-                                                                 <th colspan="2" class="heading" style="padding-top: 0px; padding-bottom: 14px;">Personal Details</th>
-                                                              </tr>
-                                                              <tr>
-                                                                 <th>Doctor Name</th>
-                                                                 <td>{{ $doctor->name }}</td>
-                                                              </tr>
-                                                              <tr>
-                                                                 <th>Primary Specialty</th>
-                                                                 <td>{{ $doctor->department->name }}</td>
-                                                              </tr>
-                                                              <tr>
-                                                                 <th>Qualification</th>
-                                                                 <td>{{ $doctor->qualification }} </td>
-                                                              </tr>
-                                                              <tr>
-                                                                 <th>Designation</th>
-                                                                 <td>{{ $doctor->designation }}</td>
-                                                              </tr>
-                                                              <tr>
-                                                                 <th>Institute</th>
-                                                                 <td>{{ $doctor->institute }}</td>
-                                                              </tr>
-                                                           </tbody>
-                                                        </table>
-                                                     </div>
-                                                  </div>
-                                               </div>
-                                               <div class="elementor-element elementor-element-5acbd95 elementor-absolute elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="5acbd95" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="divider.default">
-                                                  <div class="elementor-widget-container">
-                                                     <div class="elementor-divider">
-                                                        {{-- <span class="elementor-divider-separator">
-                                                        </span> --}}
-                                                     </div>
-                                                  </div>
-                                               </div>
-                                            </div>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </section>
-                             <section class="elementor-section elementor-top-section elementor-element elementor-element-53101df elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="53101df" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
-                                <div class="elementor-container elementor-column-gap-default">
-                                   <div class="elementor-row">
-                                      <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-36762e7 elementor-hidden-desktop" data-id="36762e7" data-element_type="column">
-                                         <div class="elementor-column-wrap elementor-element-populated">
-                                            <div class="elementor-widget-wrap">
-                                               <div class="elementor-element elementor-element-1df4fd9 elementor-widget elementor-widget-medizco-doctor-info" data-id="1df4fd9" data-element_type="widget" data-widget_type="medizco-doctor-info.default">
-                                                  <div class="elementor-widget-container">
-                                                     <div class="medizco-doctor-info">
-                                                        <table>
-                                                           <tbody>
-                                                              <tr>
-                                                                 <th>Doctor Name</th>
-                                                                 <td>{{ $doctor->name }} </td>
-                                                              </tr>
-                                                             
-                                                              <tr>
-                                                                 <th>Primary Specialty</th>
-                                                                 <td>{{ $doctor->department->name }}</td>
-                                                              </tr>
-                                                              <tr>
-                                                                 <th>Qualification</th>
-                                                                 <td>{{ $doctor->qualification }} </td>
-                                                              </tr>
-                                                            
-                                                              <tr>
-                                                                 <th>Designation</th>
-                                                                 <td>{{ $doctor->designation }}</td>
-                                                              </tr>
-                                                              <tr>
-                                                                 <th>Institute</th>
-                                                                 <td>{{ $doctor->institute }}</td>
-                                                              </tr>
-                                                           </tbody>
-                                                        </table>
-                                                     </div>
-                                                  </div>
-                                               </div>
-                                            </div>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </section>
-                             <section class="elementor-section elementor-top-section elementor-element elementor-element-19345069 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="19345069" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;_ha_eqh_enable&quot;:false}">
-                                <div class="elementor-container elementor-column-gap-default">
-                                   <div class="elementor-row">
-                                      <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2549f1bd" data-id="2549f1bd" data-element_type="column">
-                                         <div class="elementor-column-wrap elementor-element-populated">
-                                            <div class="elementor-widget-wrap">
-                                               <section class="elementor-section elementor-inner-section elementor-element elementor-element-16ab3a51 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="16ab3a51" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
-                                                  <div class="elementor-container elementor-column-gap-default">
-                                                     <div class="elementor-row">
-                                                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-351a198e" data-id="351a198e" data-element_type="column">
-                                                           <div class="elementor-column-wrap elementor-element-populated">
-                                                              <div class="elementor-widget-wrap">
-                                                                 <div class="elementor-element elementor-element-4b0d81fd biography_title elementor-widget__width-auto elementor-widget elementor-widget-elementskit-heading" data-id="4b0d81fd" data-element_type="widget" data-widget_type="elementskit-heading.default">
-                                                                    <div class="elementor-widget-container">
-                                                                       <div class="ekit-wid-con" >
-                                                                          <div class="ekit-heading elementskit-section-title-wraper    ekit_heading_tablet-   ekit_heading_mobile-">
-                                                                            @if ($doctor->biography)
-                                                                            <h2 class="ekit-heading--title elementskit-section-title ">Biography </h2>
-
-                                                                            @endif
-                                                                          </div>
-                                                                       </div>
-                                                                    </div>
-                                                                 </div>
-                                                              </div>
-                                                           </div>
-                                                        </div>
-                                                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-61f324e9" data-id="61f324e9" data-element_type="column">
-                                                           <div class="elementor-column-wrap elementor-element-populated">
-                                                              <div class="elementor-widget-wrap">
-                                                                 <div class="elementor-element elementor-element-133e43a0 elementor-widget elementor-widget-text-editor" data-id="133e43a0" data-element_type="widget" data-widget_type="text-editor.default">
-                                                                    <div class="elementor-widget-container">
-                                                                       <div class="elementor-text-editor elementor-clearfix">
-                                                                          <p><span style="font-weight: 400;">{!! $doctor->biography !!}</span></p>
-                                                                       </div>
-                                                                    </div>
-                                                                 </div>
-                                                                 <div class="elementor-element elementor-element-1a8c844c elementor-absolute elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="1a8c844c" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="divider.default">
-                                                                    <div class="elementor-widget-container">
-                                                                       <div class="elementor-divider">
-                                                                          <span class="elementor-divider-separator">
-                                                                          </span>
-                                                                       </div>
-                                                                    </div>
-                                                                 </div>
-                                                              </div>
-                                                           </div>
-                                                        </div>
-                                                     </div>
-                                                  </div>
-                                               </section>
-                                            </div>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </section>
-                             <section class="elementor-section elementor-top-section elementor-element elementor-element-1b50361 animated-slow elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible" data-id="1b50361" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;background_motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateY_effect&quot;:&quot;yes&quot;,&quot;background_motion_fx_translateX_effect&quot;:&quot;yes&quot;,&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_motion_fx_translateY_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:4,&quot;sizes&quot;:[]},&quot;background_motion_fx_translateY_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;background_motion_fx_translateX_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:4,&quot;sizes&quot;:[]},&quot;background_motion_fx_translateX_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;background_motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;_ha_eqh_enable&quot;:false}">
-                                <div class="elementor-background-overlay"></div>
-                                <div class="elementor-container elementor-column-gap-default">
-                                   <div class="elementor-row">
-                                      <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5a8fdb4" data-id="5a8fdb4" data-element_type="column">
-                                         <div class="elementor-column-wrap elementor-element-populated">
-                                            <div class="elementor-widget-wrap">
-                                               <div class="elementor-element elementor-element-2060eac elementor-widget elementor-widget-heading" data-id="2060eac" data-element_type="widget" data-widget_type="heading.default">
-                                                  <div class="elementor-widget-container">
-                                                     <h2 class="elementor-heading-title elementor-size-default">Doctor Schedule</h2>
-                                                  </div>
-                                               </div>
-                                               <section class="elementor-section elementor-inner-section elementor-element elementor-element-42fb107 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="42fb107" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
-                                                  <div class="elementor-container elementor-column-gap-default">
-                                                     <div class="elementor-row">
-                                                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a5b3e98" data-id="a5b3e98" data-element_type="column">
-                                                           <div class="elementor-column-wrap elementor-element-populated">
-                                                              <div class="elementor-widget-wrap">
-                                                                 <div class="elementor-element elementor-element-5e0b557 elementor-widget elementor-widget-heading" data-id="5e0b557" data-element_type="widget" data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
-                                                                       <h2 class="elementor-heading-title elementor-size-default">Day</h2>
-                                                                    </div>
-                                                                 </div>
-                                                              </div>
-                                                           </div>
-                                                        </div>
-                                                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-61795b3" data-id="61795b3" data-element_type="column">
-                                                           <div class="elementor-column-wrap elementor-element-populated">
-                                                              <div class="elementor-widget-wrap">
-                                                                 <div class="elementor-element elementor-element-34f6861 elementor-widget elementor-widget-heading" data-id="34f6861" data-element_type="widget" data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
-                                                                       <h2 class="elementor-heading-title elementor-size-default">Time</h2>
-                                                                    </div>
-                                                                 </div>
-                                                              </div>
-                                                           </div>
-                                                        </div>
-                                                     </div>
-                                                  </div>
-                                               </section>
-
-                                               
-                                               @foreach ($doctor->timetable as $item)
-                                               <section class="elementor-section elementor-inner-section elementor-element elementor-element-30a650c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="30a650c" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
-                                                  <div class="elementor-container elementor-column-gap-default">
-
-                                                        
-                                                   
-                                                     <div class="elementor-row">
-                                                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3eea107" data-id="3eea107" data-element_type="column">
-                                                           <div class="elementor-column-wrap elementor-element-populated">
-                                                              <div class="elementor-widget-wrap">
-                                                                 <div class="elementor-element elementor-element-c28c439 elementor-widget elementor-widget-heading" data-id="c28c439" data-element_type="widget" data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
-                                                                      <h2 class="elementor-heading-title elementor-size-default">{{ $dayMappings[$item->day] ?? $item->day }}</h2>                                                                    </div>
-                                                                 </div>
-                                                              </div>
-                                                           </div>
-                                                        </div>
-                                                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9bfb1ec" data-id="9bfb1ec" data-element_type="column">
-                                                           <div class="elementor-column-wrap elementor-element-populated">
-                                                              <div class="elementor-widget-wrap">
-                                                                 <div class="elementor-element elementor-element-b85197c elementor-widget elementor-widget-heading" data-id="b85197c" data-element_type="widget" data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
-                                                                       <h2 class="elementor-heading-title elementor-size-default">{{ $item->start_time ? date('h:i A', strtotime($item->start_time)) : "-" }}
-                                                                      </h2>
-                                                                    </div>
-                                                                 </div>
-                                                              </div>
-                                                           </div>
-                                                        </div>
-                                                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-758ac2a" data-id="758ac2a" data-element_type="column">
-                                                           <div class="elementor-column-wrap elementor-element-populated">
-                                                              <div class="elementor-widget-wrap">
-                                                                 <div class="elementor-element elementor-element-df4bb02 elementor-widget elementor-widget-heading" data-id="df4bb02" data-element_type="widget" data-widget_type="heading.default">
-                                                                    <div class="elementor-widget-container">
-                                                                       <h2 class="elementor-heading-title elementor-size-default">{{ $item->end_time ? date('h:i A', strtotime($item->start_time)) : "-" }}
-                                                                      </h2>
-                                                                    </div>
-                                                                 </div>
-                                                              </div>
-                                                           </div>
-                                                        </div>
-                                                     </div>
-
-                                                  </div>
-                                               </section>
-                                               @endforeach
-
-                                            </div>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </section>
-                             <section class="elementor-section elementor-top-section elementor-element elementor-element-0c61b2f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0c61b2f" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
-                                <div class="elementor-container elementor-column-gap-default">
-                                   <div class="elementor-row">
-                                      <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-dd7ad8d" data-id="dd7ad8d" data-element_type="column">
-                                         <div class="elementor-column-wrap elementor-element-populated">
-                                            <div class="elementor-widget-wrap">
-                                               <div class="elementor-element elementor-element-e4b9cc6 elementor-widget elementor-widget-elementskit-heading" data-id="e4b9cc6" data-element_type="widget" data-widget_type="elementskit-heading.default">
-                                                  <div class="elementor-widget-container">
-                                                     <div class="ekit-wid-con" >
-                                                        <div class="ekit-heading elementskit-section-title-wraper text_center   ekit_heading_tablet-   ekit_heading_mobile-">
-                                                           <h2 class="ekit-heading--title elementskit-section-title ">Book An <span><span>Appointment</span></span></h2>
-                                                           <div class="ekit_heading_separetor_wraper ekit_heading_elementskit-border-divider">
-                                                              <div class="elementskit-border-divider"></div>
-                                                           </div>
-                                                        </div>
-                                                     </div>
-                                                  </div>
-                                               </div>
-                                               
-                                               <!-- Booking Calender -->
-                                               <div class="mx-auto my-4" id="">
-                                                
-                                                
-                                                   
-                                                <div id="app">
-                                                  
-                                                   <form id="bookingForm">
-                                                      <!-- Step 1: Input Information -->
-                                                      <div class="step" id="step1">
-                                                          <div class="row">
-                                                              <div class="form-group col-md-6">
-                                                                  <input class="form-control" type="date" name="date" placeholder="Select Date" required>
-                                                              </div>
-                                                              <div class="form-group col-md-6">
-                                                                  <select class="form-control" name="time" required>
-                                                                      <option value="">05:00 PM</option>
-                                                                      <option value="">05:15 PM</option>
-                                                                      <option value="">05:30 PM</option>
-                                                                      <option value="">05:45 PM</option>
-                                                                  </select>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <input class="form-control" type="text" name="name" placeholder="Enter Name" required>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <input class="form-control" type="email" name="email" placeholder="Enter Email" required>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <input class="form-control" type="text" name="phone" placeholder="Enter Phone" required>
-                                                              </div>
-                                                              <div class="form-group col-md-12">
-                                                                  <button type="button" onclick="showStep(2)" class="btn btn-block btn-primary">Next</button>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  
-                                                      <!-- Step 2: Review Information -->
-                                                     <!-- Step 2: Review Information -->
-                                                      <div class="step container" id="step2" style="display: none; ">
-                                                         {{-- <h2>Booking Details</h2> --}}
-                                                         <div class="card">
-                                                         <div class="card-header">
-                                                            Booing Confirmation
-                                                         </div>
-
-                                                         <div class="card-body">
-                                                            <div class="row mb-4">
-                                                               <div class="col-sm-6">
-                                                               <h6 class="mb-3">From:</h6>
-                                                               <div>
-                                                               <strong>   <time datetime="2024-01-14">January 14, 2024</time>
-                                                               </strong>
-                                                               </div>
-                                                               <div id="reviewName"></div>
-                                                               <div>71-101 Szczecin, Poland</div>
-                                                               <div id="reviewEmail"></div>
-                                                               <div id="reviewPhone"></div>
-                                                               </div>
-                                                            </div>
-
-                                                            <div class="col-sm-6">
-                                                               
-                                                         </div>  
-                                                               <div class="table-responsive-sm">
-                                                                  <table class="table table-striped">
-                                                                     <thead>
-                                                                        <tr>
-                                                                           <th class="center">#</th>
-                                                                           <th>Department</th>
-                                                                           <th>Desc</th>
-                                                                           <th class="right">Fee</th>
-                                                                        </tr>
-                                                                     </thead>
-                                                                     <tbody>
-                                                                        <tr>
-                                                                           <td class="center">1</td>
-                                                                           <td class="left strong">Dental</td>
-                                                                           <td class="left">Dr Muradology (MBBS , FCPS, FRCS ,MCPE)</td>
-                                                                           <td class="right">TK 1000.00</td>
-                                                                       
-                                                                        </tr>
-                                                                       
-                                                                     </tbody>
-                                                                  </table>
-                                                               </div>
-                                                               <div class="row">
-                                                                  <div class="col-lg-4 col-sm-5">
-                                                                  </div>
-                                                                  <div class="col-lg-4 col-sm-5 ml-auto">
-                                                                     <table class="table table-clear">
-                                                                        <tbody>
-                                                                           {{-- <tr>
-                                                                              <td class="left">
-                                                                                 <strong>Subtotal</strong>
-                                                                              </td>
-                                                                              <td class="right">$8.497,00</td>
-                                                                           </tr>
-                                                                           <tr>
-                                                                              <td class="left">
-                                                                                 <strong>Discount (20%)</strong>
-                                                                              </td>
-                                                                              <td class="right">$1,699,40</td>
-                                                                           </tr>
-                                                                           <tr>
-                                                                              <td class="left">
-                                                                                 <strong>VAT (10%)</strong>
-                                                                              </td>
-                                                                              <td class="right">$679,76</td>
-                                                                           </tr>
-                                                                           <tr>
-                                                                              <td class="left">
-                                                                                 <strong>Total</strong>
-                                                                              </td>
-                                                                              <td class="right">
-                                                                                 <strong>$7.477,36</strong>
-                                                                              </td>
-                                                                           </tr> --}}
-                                                                        </tbody>
-                                                                     </table>
-                                                                  </div>
-                                                               </div>
-                                                            <div class="review-section">
-                                                              
-                                                               <p class="review-value" id="reviewDate"></p>
-
-                                                               <p class="review-value" id="reviewTime"></p>
-
-                                                             
-                                                               <p class="review-value" id="reviewName"></p>
-
-                                                               
-                                                               <p class="review-value" id="reviewEmail"></p>
-
-                                                             
-                                                               <p class="review-value" id="reviewPhone"></p>
-                                                            </div>
-                                                         </div>
-
-                                                         <div class="form-group col-md-12">
-                                                            <button type="button" onclick="showStep(1)" class="btn btn-block btn-secondary">Back</button>
-                                                            <button type="submit" class="btn btn-block btn-success">Confirm Booking</button>
-                                                         </div>
-                                                         </div>
-                                                      </div>
-                                                   </form>
-                                                </div>
-                                           
-                                               </div>
-                                            
-                                             </div>
-                                         </div>
-                                      </div>
-                                   </div>
-                                </div>
-                             </section>
-                          </div>
-                       </div>
-                    </div>
-                    <div class="post-footer clearfix">
-                    </div>
-                    <!-- .entry-footer -->
-                 </div>
-                 <!-- end entry-content -->
-              </div>
-              <!-- end post-body -->
-           </article>
-           
-           <nav class="post-navigation clearfix">
-              <div class="post-previous">
-                 <a href="../dr-md-shahidur-rahman-shikder/index.html">
-                    <h3>
-                       Dr. Md. Shahidur Rahman Sikder <br> 
-                       <h6 class="page_banner_title_h6"> MBBS (DMC), BCS (Health) MS (Neurosurgery), MRCS (England) </h6>
-                    </h3>
-                    <span><i class="fa fa-long-arrow-left"></i>Previous post</span>
-                 </a>
-              </div>
-              <div class="post-next">
-                 <a href="../dr-md-aminul-islam/index.html">
-                    <h3>
-                       Dr. Md. Aminul Islam <br> 
-                       <h6 class="page_banner_title_h6"> MBBS, MD(NEPHROLOGY), BCS(HEALTH) </h6>
-                    </h3>
-                    <span>Next post <i class="fa fa-long-arrow-right"></i></span>
-                 </a>
-              </div>
-           </nav>
-        </div>
-        <!-- .col-md-8 -->
-     </div>
-     <!-- .row -->
-  </div>
-  <!-- .container -->
-</div>
-
-@endsection
-`
-
-@section('js')
-
-<script>
-   function showStep(step) {
-       if (step === 2) {
-           // Retrieve values from step 1 and display in step 2
-           document.getElementById('reviewDate').textContent = document.getElementsByName('date')[0].value;
-           document.getElementById('reviewTime').textContent = document.getElementsByName('time')[0].value;
-           document.getElementById('reviewName').textContent = document.getElementsByName('name')[0].value;
-           document.getElementById('reviewEmail').textContent = document.getElementsByName('email')[0].value;
-           document.getElementById('reviewPhone').textContent = document.getElementsByName('phone')[0].value;
-       }
-       document.getElementById('step1').style.display = (step === 1) ? 'block' : 'none';
-       document.getElementById('step2').style.display = (step === 2) ? 'block' : 'none';
+   .booked {
+   background-color: red; /* Or any other style you prefer */
    }
-</script>
+   .calender-block .inner-box .time-boxed .time_booked{
+	position:relative;
+	float:left;
+	width:19%;
+	font-size:14px;
+	color:#222222;
+	padding:9px 6px;
+	text-align:center;
+	font-weight:400;
+	line-height:1.8em;
+	margin-bottom:4px;
+	z-index:1;
+	margin-right:4px;
+	background-color:#f0f0f0;
+	-webkit-transition:all 600ms ease;
+	-ms-transition:all 600ms ease;
+	-o-transition:all 600ms ease;
+	-moz-transition:all 600ms ease;
+	transition:all 600ms ease;
+}
 
+.calender-block .inner-box .time-boxed .time_booked:hover{
+	color:#ffffff;
+	z-index:1;
+}
+
+.calender-block .inner-box .time-boxed .time_booked:before{
+	position:absolute;
+	content:'';
+	left:0px;
+	top:0px;
+	width:0%;
+	height:100%;
+	z-index:-1;
+	background-color:#1cba9f;
+	-webkit-transition:all 600ms ease;
+	-ms-transition:all 600ms ease;
+	-o-transition:all 600ms ease;
+	-moz-transition:all 600ms ease;
+	transition:all 600ms ease;
+}
+
+.calender-block .inner-box .time-boxed .time_booked:hover::before{
+	width:100%;
+}
+
+   
+</style>
 @endsection
+@section('page-content')
+<section class="page-title">
+   <div class="outer-container">
+      <div class="image">
+         <img src="{{ asset('front/asset/images/background/20.jpg')}}" alt />
+      </div>
+   </div>
+</section>
+<section class="page-breadcrumb">
+   <div class="image-layer" style="background-image:url({{ asset('front/asset/images/background/1.png')}})"></div>
+   <div class="container">
+      <div class="clearfix">
+         <div class="pull-left">
+            <h2>{{ $doctor->name }}</h2>
+         </div>
+         <div class="pull-right">
+            <ul class="breadcrumbs">
+               <li class="left-curves"></li>
+               <li class="right-curves"></li>
+               <li><a href="{{ url('/') }}">Home -</a></li>
+               <li><a href="{{ url('/doctors') }}">Doctors -</a></li>
+               <li>{{ Str::limit($doctor->name, 30) }}</li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="doctor-detail-section">
+   <div class="container">
+      <div class="row">
+         <div class="image-column col-lg-5 col-md-12 col-sm-12">
+            <div class="inner-column">
+               <div class="image">
+                  <img src="{{ $doctor->image }}" alt />
+                  <div class="number-box">
+                     <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="play-button" data-fancybox data-caption><i class="ripple"></i><i class="icon flaticon-phone"></i></a>
+                     10699
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="content-column col-lg-7 col-md-12 col-sm-12">
+            <div class="inner-column">
+               <h2>Personal Details</h2>
+               <ul class="doctor-info-list">
+                  <li><span>Doctor Name</span>{{ $doctor->name }}</li>
+                  <li><span>Primary Speciality</span>{{ $doctor->speciality }}</li>
+                  <li><span>Qualification</span>{{ $doctor->qualification }}</li>
+                  <li><span>Designation</span>{{ $doctor->designation }}</li>
+                  <li><span>Institue</span>{{ $doctor->institute }}</li>
+               </ul>
+               {{-- 
+               <h2>Education & Training</h2>
+               <ul class="doctor-info-list">
+                  <li><span>Medical Education</span>University of California, San Francisco</li>
+                  <li><span>Residency</span>San Francisco</li>
+                  <li><span>Practice Areas</span>Stereotactic Radiosurgery, Glioma</li>
+                  <li><span>Certifications</span>American Board of Neurological Surgery </li>
+               </ul>
+               <h2>Social Media</h2>
+               <ul class="social-box">
+                  <li class="facebook"><a href="#"><span class="icon icon icon-facebook"></span></a></li>
+                  <li class="twitter"><a href="#"><span class="icon icon icon-twitter"></span></a></li>
+                  <li class="linkedin"><a href="#"><span class="icon icon icon-linkedin"></span></a></li>
+                  <li class="youtube"><a href="#"><span class="icon icon icon-youtube"></span></a></li>
+               </ul>
+               --}}
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+@if($doctor->biography != Null)
+<div class="biography-section">
+   <div class="pattern-one" style="background-image: url({{ asset('front/asset/images/icons/pattern-icon-10.png')}});"></div>
+   <div class="container">
+      <div class="row">
+         <div class="title-column col-lg-4 col-md-12 col-sm-12">
+            <h2>biography</h2>
+         </div>
+         <div class="content-column col-lg-8 col-md-12 col-sm-12">
+            <div class="inner-column">
+               <p>Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted</p>
+               <p>almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+               <div class="signature">
+                  <img src="{{ asset('front/asset/images/icons/signature.png')}}" alt />
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+@endif
+<section class="dr_schedule">
+   <div style="" class="pattern-layer" style="background-image:url({{ asset('front/asset/images/background/pattern-10.png')}})"></div>
+   <div class="pattern-layer-two" style="background-image:url({{ asset('front/asset/images/background/pattern-11.png')}})"></div>
+   <div class="container">
+      <div class="row">
+         <div class="skills-column col-lg-12 col-md-12 col-sm-12">
+            <div class="inner-column" style="">
+               <table style="font-size:20px;" class="dr_timetable table table-bordered">
+                  <thead>
+                     <tr>
+                        <th style="text-align:center; font-size:30px;" colspan="3">Doctor Time Schedule</th>
+                     </tr>
+                     <tr>
+                        <th>Day</th>
+                        <th>Start Time</th>
+                        <th>End time</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @foreach ($doctor->timetable as $item)
+                     <tr>
+                        <td>{{ $dayMappings[$item->day] ?? $item->day}}</td>
+                        <td>{{ $item->start_time ? date('h:i A', strtotime($item->start_time)) : "-" }}</td>
+                        <td>{{ $item->end_time ? date('h:i A', strtotime($item->start_time)) : "-" }}</td>
+                     </tr>
+                     @endforeach
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+@php
+// /dd($availableDates);
+@endphp
+<section class="appointment-section style-two">
+   <div class="pattern-layer" style="background-image:url(images/background/pattern-1.png)"></div>
+   <div class="container">
+      <div class="title-box">
+         <h2>With access to 24 hour emergency assistance, you can continue to help others.</h2>
+      </div>
+      <div class="inner-section">
+         <div class="row">
+            <!-- <div class="col-lg-4 col-md-12 col-sm-12">
+               <div class="form-column">
+                  <div class="inner-column">
+                     <h3>Fill up the form</h3>
+                     <div class="calender-form">
+                        <form method="post" action="https://html.xpeedstudio.com/medizco/contact.html">
+                           <div class="form-group">
+                              <label><span class="icon icon-doctor"></span> Purpose for Visit</label>
+                              <select class="custom-select-box">
+                                 <option>Select Visit Type</option>
+                                 <option>Type One</option>
+                                 <option>Type Two</option>
+                                 <option>Type Three</option>
+                                 <option>Type Four</option>
+                              </select>
+                           </div>
+                           <div class="form-group">
+                              <label><span class="icon flaticon-new-user"></span> Enter your Name</label>
+                              <input type="text" name="username" placeholder="Type your name" required>
+                           </div>
+                           <div class="form-group">
+                              <label><span class="icon icon-envelope"></span> Your Mail Address</label>
+                              <input type="text" name="email" placeholder="Email" required>
+                           </div>
+                           <div class="form-group">
+                              <label><span class="icon flaticon-phone-receiver"></span> Your Mail Address</label>
+                              <input type="text" name="phone" placeholder="Phone" required>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               </div> -->
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 col-md-12 col-sm-12">
+               <div class="calender-column">
+                  <div class="inner-column">
+                     <div class="calender-title">
+                        <div class="title">Need emergency?</div>
+                        <h3>Book an <span class="theme_color">Appointment</span></h3>
+                        @if ($errors->any())
+                        <div class="flex p-4 mt-2 mx-7 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                           <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                           </svg>
+                           <span class="sr-only">Danger</span>
+                           <div>
+                              <span class="font-medium">Ensure that these requirements are met:</span>
+                              <ul class="mt-1.5 list-disc list-inside">
+                                 @foreach ($errors->all() as $error )
+                                 <li>{{ $error }}</li>
+                                 @endforeach
+                              </ul>
+                           </div>
+                        </div>
+                        @endif
+                     </div>
+                     <div class="calender-carousel owl-carousel owl-theme">
+                        @foreach ($calendarBlocks as $block)
+                        <div class="calender-block">
+                           <div class="block-outer">
+                              <div class="inner-box">
+                                 <div class="days-boxed">
+                                    <div class="clearfix">
+                                       <div class="day-date"><strong>{{ $block['day'] }}</strong>{{ $block['date'] }}</div>
+                                    </div>
+                                 </div>
+                                 <div class="time-boxed">
+                                    <div class="clearfix">
+                                       @foreach ($block['timeSlots'] as $timeSlot)
+                                          @php
+                                             // Construct the start time and end time for the current time slot
+                                             $startTime = Carbon\Carbon::parse($block['date'].' '.$timeSlot);
+                                             $endTime = $startTime->copy()->addMinutes(15); // Assuming each time slot is 15 minutes
 
+                                             // Check if any appointment overlaps with the current time slot
+                                             $booked = \App\Models\Appointment::where('doctor_id', $doctor->id)
+                                                   ->where('start_time', '<', $endTime) // Check if appointment start time is before the time slot's end time
+                                                   ->where('end_time', '>', $startTime) // Check if appointment end time is after the time slot's start time
+                                                   ->exists(); // Check if any such appointment exists
+                                          @endphp
+
+                                          @if ($booked)
+                                          <div class="time_booked" style="background-color: rgb(32, 170, 180);" data-time="{{ $timeSlot }}">{{ $timeSlot }}</div>  
+                                          @else
+                                          <div class="time" data-time="{{ $timeSlot }}">{{ $timeSlot }}</div>  
+                             
+                                          @endif
+
+                                       @endforeach
+
+                                    </div>
+                                 </div>
+                                 <div class="more-boxed">
+                                    {{-- 
+                                    <div class="clearfix">
+                                       @for ($i = 0; $i < count($block['timeSlots']); $i++)
+                                       <div class="more">more...</div>
+                                       @endfor
+                                    </div>
+                                    --}}
+                                 </div>
+                              </div>
+                              <div class="button-box">
+                                 {{-- <a href="#" class="theme-btn btn-style-transparent"><span class="arrow icon-chevron-left"></span> Cancel</a>
+                                 <a href="#" class="theme-btn btn-style-three">Book Now <span class="arrow icon-chevron-right"></span></a> --}}
+                              </div>
+                           </div>
+                        </div>
+                        @endforeach
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+</section>
+<!-- Form Modal -->
+<div id="appointmentModal" class="modal modal-xl">
+   <div class="modal-content modal-dialog-scrollable" style="margin-bottom: 20px;">
+      <span class="close">&times;</span>
+      <h2 class="text-center">Appointment Details</h2>
+      <hr>
+      <div style="margin-left: 10%; margin-right: 10%; text-align: center;">
+         <div style="text-align: center; margin-top: 30px;">
+            <div class="row">
+               <div class="col-xs-6 col-md-6 text-left">
+                  <img style="height: 110px; border-radius: 50%;" src="{{ $doctor->image }}" alt="{{ $doctor->name }}" />
+                  <h5>{{ $doctor->name }}</h5>
+               </div>
+               <div class="col-xs-6 col-md-6">
+                  <p></p>
+                  <p><input disabled type="text" id="selectedTime" name="selectedTime" value="16:00"></p>
+                  <p><input disabled type="text" id="selectedPatientName" name="selectedPatientName" value=""></p>
+                  <p><input disabled type="text" id="selectedPhone" name="selectedPhone" value=""></p>
+                  <p><input disabled type="text" id="selectedRemarks" name="selectedRemarks" value=""></p>
+                  <p><input disabled type="text" value="{{ $doctor->visit_fee }}"></p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <form id="appointmentForm" action="{{ route('front.booking.store') }}" method="POST" style="margin-top: 30px; margin-left: 10%; margin-right: 10%; margin-bottom: 10%">
+         @csrf
+         <div class="form-group">
+            <input readonly class="form-control" type="text" id="selectedDate" name="selectedDate" >
+         </div>
+         <div class="form-group">
+            <input readonly class="form-control" type="text" name="doctor_name" value="{{ $doctor->name }}" >
+            <input readonly class="form-control" type="hidden" name="doctor_id" value="{{ $doctor->id }}" >
+         </div>
+         <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Name">
+         </div>
+         <div class="form-group">
+            <input type="text" class="form-control" name="phone" placeholder="Phone">
+         </div>
+         <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email">
+         </div>
+         <div class="form-group">
+            <textarea class="form-control" name="remarks" placeholder="Remarks"></textarea>
+         </div>
+         <button class="btn btn-danger btn-block" type="submit">Submit</button>
+      </form>
+   </div>
+</div>
+@endsection
+@section('js')
+@include('sweetalert::alert')
+<script>
+   // Get the modal
+   var modal = document.getElementById("appointmentModal");
+   
+   // Get all time slots
+   var timeSlots = document.querySelectorAll(".time");
+   
+   // Loop through each time slot and attach click event
+   timeSlots.forEach(function(slot) {
+       slot.addEventListener("click", function() {
+           // Open the modal
+           modal.style.display = "block";
+           // Pass the selected time slot to the form
+           var selectedDateTime = slot.closest(".calender-block").querySelector(".day-date").innerText + " " + slot.getAttribute("data-time");
+           document.getElementById("selectedDate").value = formatDate(selectedDateTime);
+   
+           document.getElementById("selectedTime").value = slot.getAttribute("data-time");
+   
+           document.getElementById("selectedPhone").value = slot.getAttribute("phone");
+       });
+   });
+   
+   // Function to format date and time
+   function formatDate(dateTime) {
+       var date = new Date(dateTime);
+       var formattedDate = ("0" + date.getDate()).slice(-2) + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + date.getFullYear();
+       var hours = ("0" + date.getHours()).slice(-2);
+       var minutes = ("0" + date.getMinutes()).slice(-2);
+       var formattedTime = hours + ":" + minutes;
+       return formattedDate + " " + formattedTime;
+   }
+   
+   // Get the <span> element that closes the modal
+   var span = document.getElementsByClassName("close")[0];
+   
+   // When the user clicks on <span> (x), close the modal
+   span.onclick = function() {
+       modal.style.display = "none";
+   }
+   
+   // When the user clicks anywhere outside of the modal, close it
+   window.onclick = function(event) {
+       if (event.target == modal) {
+           modal.style.display = "none";
+       }
+   }
+   
+   // Submit form
+   // document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+   //     event.preventDefault();
+   //     // Here you can handle form submission, e.g., AJAX request
+   //     // After form submission, you can show the final step for review
+   //     alert("Form submitted successfully!");
+   //     // Reset form
+   //     document.getElementById("appointmentForm").reset();
+   //     // Close modal
+   //     modal.style.display = "none";
+   // });
+   
+   // Live display of input text
+   var nameInput = document.querySelector('input[name="name"]');
+   var phoneInput = document.querySelector('input[name="phone"]');
+   var remarksInput = document.querySelector('textarea[name="remarks"]');
+   var selectedPatientName = document.getElementById("selectedPatientName");
+   var selectedPhone = document.getElementById("selectedPhone");
+   var selectedRemarks = document.getElementById("selectedRemarks");
+   
+   nameInput.addEventListener('input', function() {
+       selectedPatientName.value = this.value;
+   });
+   
+   phoneInput.addEventListener('input', function() {
+       selectedPhone.value = this.value;
+   });
+   
+   remarksInput.addEventListener('input', function() {
+       selectedRemarks.value = this.value;
+   });
+</script>
+@endsection

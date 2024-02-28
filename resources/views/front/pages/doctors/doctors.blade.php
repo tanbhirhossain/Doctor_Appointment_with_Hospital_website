@@ -1,128 +1,285 @@
-@extends('front.layouts.template_doctor')
+@extends('front.layouts.medicoz_master')
 
-@section('page-title', 'Doctors | AMZ Hospital Ltd. | For amazing Care &#8211; Uttar Badda , Dhaka-1212')
-
-@section('css')
-<link rel='stylesheet' id='wp-block-library-css' href="{{ asset('front/wp/wp-includes/css/dist/block-library/style.min9b30.css?ver=6.3.1')}}" type='text/css' media='all' />
-@endsection
+@section('page-title', 'AMZ Hospital Ltd. | For amazing Care &#8211; Uttar Badda , Dhaka-1212')
 
 @section('page-content')
-<div class="page_banner">
-    <div class="page_banner_img">
-       <img src="../wp-content/uploads/2019/09/doctors-page-header-img.html" alt="Meet Our Specialists">
-    </div>
-    <div class="page_banner_content  overlay" style="background-image: url({{asset('front/wp/wp-content/themes/medizco/assets/images/banner/page-banner-bg.png') }});; --banner-overlay-color: rgba(221,17,17,0.8); --banner-breadcumb-color: #dd3333">
-       <div class="container d-lg-flex justify-content-between">
-          <h1 class="page_banner_title">
-             Meet Our Specialists            
-          </h1>
-          <ul class="medizco_breadcrumblist d-inline-flex flex-wrap flex-lg-nowrap align-items-center">
-             <li class="curves left"></li>
-             <li class="curves right"></li>
-             <li><a href="../index.html">Home</a></li>
-             <li class="seperator">-</li>
-             <li>Doctors</li>
-          </ul>
+
+<section class="page-title">
+    <div class="outer-container">
+       <div class="image">
+          <img src="{{ asset('front/asset/images/background/19.jpg')}}" alt />
        </div>
     </div>
- </div>
- <!-- .medizco_banner -->
- <div id="post-2306" class="page-contents post-2306 page type-page status-publish hentry" role="main">
-    <div class="builder-content">
-       <div data-elementor-type="wp-page" data-elementor-id="2306" class="elementor elementor-2306">
-          <div class="elementor-inner">
-             <div class="elementor-section-wrap">
-                <section class="elementor-section elementor-top-section elementor-element elementor-element-a7134eb ov-h elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a7134eb" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ekit_section_parallax_multi&quot;:&quot;yes&quot;,&quot;ekit_section_parallax_multi_items&quot;:[{&quot;parallax_style&quot;:&quot;onscroll&quot;,&quot;image&quot;:{&quot;url&quot;:&quot;https:\/\/amzhospitalbd.com\/wp-content\/uploads\/2019\/09\/pattern-21.png&quot;,&quot;id&quot;:2366,&quot;size&quot;:&quot;&quot;},&quot;pos_x&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;pos_y&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]},&quot;animation_iteration_count&quot;:null,&quot;zindex&quot;:0,&quot;_id&quot;:&quot;348c445&quot;,&quot;parallax_blur_effect&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;parallax_blur_effect_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;parallax_blur_effect_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;item_source&quot;:&quot;image&quot;,&quot;shape&quot;:null,&quot;shape_color&quot;:null,&quot;width_type&quot;:&quot;&quot;,&quot;custom_width&quot;:null,&quot;source_rotate&quot;:{&quot;unit&quot;:&quot;deg&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;animation&quot;:null,&quot;animation_tablet&quot;:null,&quot;animation_mobile&quot;:null,&quot;item_opacity&quot;:&quot;1&quot;,&quot;animation_speed&quot;:null,&quot;animation_direction&quot;:null,&quot;parallax_speed&quot;:null,&quot;parallax_transform&quot;:&quot;translateY&quot;,&quot;parallax_transform_value&quot;:&quot;250&quot;,&quot;smoothness&quot;:&quot;700&quot;,&quot;offsettop&quot;:&quot;0&quot;,&quot;offsetbottom&quot;:&quot;0&quot;,&quot;maxtilt&quot;:null,&quot;scale&quot;:null,&quot;disableaxis&quot;:null},{&quot;parallax_style&quot;:&quot;onscroll&quot;,&quot;image&quot;:{&quot;url&quot;:&quot;https:\/\/amzhospitalbd.com\/wp-content\/uploads\/2019\/09\/pattern-20.png&quot;,&quot;id&quot;:2367,&quot;size&quot;:&quot;&quot;},&quot;pos_x&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:90,&quot;sizes&quot;:[]},&quot;pos_y&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;animation_iteration_count&quot;:null,&quot;zindex&quot;:0,&quot;_id&quot;:&quot;adce909&quot;,&quot;parallax_blur_effect&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;parallax_blur_effect_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;parallax_blur_effect_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;item_source&quot;:&quot;image&quot;,&quot;shape&quot;:null,&quot;shape_color&quot;:null,&quot;width_type&quot;:&quot;&quot;,&quot;custom_width&quot;:null,&quot;source_rotate&quot;:{&quot;unit&quot;:&quot;deg&quot;,&quot;size&quot;:0,&quot;sizes&quot;:[]},&quot;animation&quot;:null,&quot;animation_tablet&quot;:null,&quot;animation_mobile&quot;:null,&quot;item_opacity&quot;:&quot;1&quot;,&quot;animation_speed&quot;:null,&quot;animation_direction&quot;:null,&quot;parallax_speed&quot;:null,&quot;parallax_transform&quot;:&quot;translateY&quot;,&quot;parallax_transform_value&quot;:&quot;250&quot;,&quot;smoothness&quot;:&quot;700&quot;,&quot;offsettop&quot;:&quot;0&quot;,&quot;offsetbottom&quot;:&quot;0&quot;,&quot;maxtilt&quot;:null,&quot;scale&quot;:null,&quot;disableaxis&quot;:null}],&quot;_ha_eqh_enable&quot;:false}">
-                   <div class="elementor-container elementor-column-gap-no">
-                      <div class="elementor-row">
-                         <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7229335" data-id="7229335" data-element_type="column">
-                            <div class="elementor-column-wrap elementor-element-populated">
-                               <div class="elementor-widget-wrap">
-                                  <div class="elementor-element elementor-element-64a510a elementor-widget elementor-widget-medizco-doctors" data-id="64a510a" data-element_type="widget" data-widget_type="medizco-doctors.default">
-                                     <div class="elementor-widget-container">
-                                        <div class="medizco_doctors medizco_doctors_filter" data-rtl="">
-                                           <ul class="filter_nav d-flex flex-wrap justify-content-center">
-                                              <li class="filter active" data-filter=".all-departments">All Departments</li>
-                                              @foreach ($departments as $item)
+ </section>
+ <section class="page-breadcrumb">
+    <div class="image-layer" style="background-image:url({{ asset('front/asset/images/background/1.png')}})"></div>
+    <div class="container">
+       <div class="clearfix">
+          <div class="pull-left">
+             <h2>Meet Our Specialists</h2>
+          </div>
+          <div class="pull-right">
+             <ul class="breadcrumbs">
+                <li class="left-curves"></li>
+                <li class="right-curves"></li>
+                <li><a href="{{ url('/') }}">Home -</a></li>
+                <li>Doctors</li>
+             </ul>
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="doctors-page-section">
+    <div class="container">
+       <div class="mixitup-gallery">
+          <div class="filters text-center clearfix">
+             <ul class="filter-tabs filter-btns clearfix">
+                <li class="active filter" data-role="button" data-filter="all">All Departments</li>
+                @foreach ($departments as $item)
 
-                                              <li class="filter" data-filter=".mm{{ $item->id }}">{{ $item->name }}</li>
+                <li class="filter" data-role="button" data-filter=".mm{{ $item->id }}">{{ $item->name }}</li>
 
-                                              @endforeach
-                                           </ul>
-                                           <div class="filter_items row">
-                                              <div class="filter_item mix col-lg-3 col-md-6 col-sm-12 all-departments medicine-specialist">
-                                                 <div class="doctor_box">
-                                                    <div class="doctor_box_img">
-                                                       <img width="350" height="300" src="../wp-content/uploads/2023/02/Dr._Ahmedul_Kabir-removebg-preview.png" class="attachment-medium_large size-medium_large wp-post-image" alt="" decoding="async" srcset="https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Ahmedul_Kabir-removebg-preview.png 350w, https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Ahmedul_Kabir-removebg-preview-300x257.png 300w, https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Ahmedul_Kabir-removebg-preview-200x171.png 200w" sizes="(max-width: 350px) 100vw, 350px" />            
-                                                    </div>
-                                                    
-                                                    <div class="doctor_box_icon">
-                                                       <i class="fa fa-user-md doctor_box_icon_item"></i>
-                                                    </div>
-                                                    <div class="doctor_box_content">
-                                                       <h3 class="doctor_box_title">
-                                                          Professor Dr. Ahamedul Kabir <br>
-                                                          <h6 class="page_banner_title_h6">MBBS, FCPS, FACP, FRCP</h6>
-                                                       </h3>
-                                                       <p class="doctor_box_role">Medicine specialist</p>
-                                                    </div>
-                                                    <a href="../blog/doctor/professor-dr-ahamedul-kabir/index.html" class="doctor_box_link"></a>
-                                                 </div>
-                                              </div>
-                                              <div class="filter_item mix col-lg-3 col-md-6 col-sm-12 internal-medicine-critical-care-unit">
-                                                 <div class="doctor_box">
-                                                    <div class="doctor_box_img">
-                                                       <img loading="lazy" width="350" height="300" src="../wp-content/uploads/2023/02/Dr._Mohammad_Sayem-removebg-preview-removebg-preview.png" class="attachment-medium_large size-medium_large wp-post-image" alt="" decoding="async" srcset="https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Mohammad_Sayem-removebg-preview-removebg-preview.png 350w, https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Mohammad_Sayem-removebg-preview-removebg-preview-300x257.png 300w, https://amzhospitalbd.com/wp-content/uploads/2023/02/Dr._Mohammad_Sayem-removebg-preview-removebg-preview-200x171.png 200w" sizes="(max-width: 350px) 100vw, 350px" />            
-                                                    </div>
-                                                    
-                                                    <div class="doctor_box_icon">
-                                                       <i class="fa fa-user-md doctor_box_icon_item"></i>
-                                                    </div>
-                                                    <div class="doctor_box_content">
-                                                       <h3 class="doctor_box_title">
-                                                          Dr. Mohammad Sayem <br> 
-                                                          <h6> MBBS (DHAKA), FCPS(GOLD MEDALIST), MRCP MRCPE(EDINBURGH), MACP(USA)</h6>
-                                                       </h3>
-                                                    </div>
-                                                    <a href="../blog/doctor/dr-mohammad-sayem-1/index.html" class="doctor_box_link"></a>
-                                                 </div>
-                                              </div>
-                                              @foreach ($doctors as $item)
-                                              <div class="filter_item mix col-lg-3 col-md-6 col-sm-12 mm{{ $item->department->id }}">
-                                                <div class="doctor_box">
-                                                   <div class="doctor_box_img">
-                                                      <img loading="lazy" width="350" height="300" src="{{ asset($item->image) }}" class="attachment-medium_large size-medium_large wp-post-image" alt="" decoding="async" srcset="{{ asset($item->image) }}" sizes="(max-width: 350px) 100vw, 350px" />            
-                                                   </div>
-                                                   
-                                                   <div class="doctor_box_icon">
-                                                      <i class="fa fa-user-md doctor_box_icon_item"></i>
-                                                   </div>
-                                                   <div class="doctor_box_content">
-                                                      <h3 class="doctor_box_title">
-                                                         {{ $item->name }} <br> 
-                                                         <h6> {{ $item->qualification }}</h6>
-                                                      </h3>
-                                                      <p class="doctor_box_role">{{ $item->department->name }}</p>
-
-                                                   </div>
-                                                   <a href="{{ route('doctor.details', $item->slug) }}" class="doctor_box_link"></a>
-                                                </div>
-                                             </div>
-                                              @endforeach
-                                           </div>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div>
-                            </div>
+                @endforeach
+              
+             </ul>
+          </div>
+          <div class="filter-list row">
+             {{-- <div class="team-block all mix traumatology dental pediatric col-lg-3 col-md-6 col-sm-12">
+                <div class="inner-box">
+                   <div class="image">
+                      <img src="{{ asset('front/asset/images/resource/team-1.jpg')}}" alt />
+                      <div class="overlay-box">
+                         <div class="overlay-inner">
+                            <ul class="team-social-box">
+                               <li class="youtube"><a href="#" class="icon icon-youtube"></a><span class="social-name">youtube</span></li>
+                               <li class="linkedin"><a href="#" class="icon icon-linkedin"></a><span class="social-name">linkedin</span></li>
+                               <li class="facebook"><a href="#" class="icon icon-facebook"></a><span class="social-name">facebook</span></li>
+                               <li class="twitter"><a href="#" class="icon icon-twitter"></a><span class="social-name">twitter</span></li>
+                            </ul>
                          </div>
                       </div>
                    </div>
-                </section>
+                   <div class="lower-content">
+                      <div class="icon-box">
+                         <span class="icon icon-heart1"></span>
+                      </div>
+                      <h3><a href="#">Andrew Sebastian</a></h3>
+                      <p class="designation">Dermatologist</p>
+                   </div>
+                </div>
+             </div> --}}
+
+             @foreach ($doctors as $item)
+
+             <div class="team-block all mix mm{{ $item->department->id }} col-lg-3 col-md-6 col-sm-12">
+                <div class="inner-box">
+                   <div class="image">
+                      <img src="{{ asset($item->image) }}" alt />
+                      <div class="overlay-box">
+                         <div class="overlay-inner">
+                            <ul class="team-social-box">
+                               <li class="youtube"><a href="https://www.youtube.com/@amzhospitalltd" class="icon icon-youtube"></a><span class="social-name">youtube</span></li>
+                               <li class="linkedin"><a href="https://www.linkedin.com/company/amz-hospital-ltd/" class="icon icon-linkedin"></a><span class="social-name">linkedin</span></li>
+                               <li class="facebook"><a href="https://www.facebook.com/amzhospitalltd" class="icon icon-facebook"></a><span class="social-name">facebook</span></li>
+                               {{-- <li class="twitter"><a href="#" class="icon icon-twitter"></a><span class="social-name">twitter</span></li> --}}
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="lower-content">
+                      <div class="icon-box">
+                         <span class="icon icon-heart1"></span>
+                      </div>
+                      <h3><a href="{{ route('doctor.details', $item->slug) }}">{{ $item->name }}</a></h3>
+                      <p class="designation">{{ $item->department->name }}</p>
+                   </div>
+                </div>
+             </div>
+            @endforeach
+          </div>
+       </div>
+    </div>
+ </section>
+ <section class="price-section">
+    <div class="pattern-layer-one" style="background-image:url({{ asset('front/asset/images/background/pattern-21.png')}})"></div>
+    <div class="pattern-layer-two" style="background-image:url({{ asset('front/asset/images/background/pattern-20.png')}})"></div>
+    <div class="container">
+       <div class="section-title text-center">
+          <h2>Flexible Pricing Plans</h2>
+          <p class="text">Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarks grove right</p>
+       </div>
+       <div class="clearfix">
+          <div class="price-block col-lg-3 col-md-6 col-sm-12">
+             <div class="inner-box">
+                <div class="upper-box">
+                   <h3>Doctor Visits & <br> Urgent Care</h3>
+                </div>
+                <div class="middle-box">
+                   <p class="text">Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="lower-box">
+                   <div class="price">$15.00</div>
+                   <div class="package-plan">Per Yearly</div>
+                   <a href="#" class="theme-btn book-btn">Book now <span class="flaticon-right-arrow"></span></a>
+                </div>
+             </div>
+          </div>
+          <div class="price-block col-lg-3 col-md-6 col-sm-12">
+             <div class="inner-box">
+                <div class="upper-box">
+                   <h3>Your Physician & <br> Specialists</h3>
+                </div>
+                <div class="middle-box">
+                   <p class="text">Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="lower-box">
+                   <div class="price">$25.00</div>
+                   <div class="package-plan">Per Yearly</div>
+                   <a href="#" class="theme-btn book-btn">Book now <span class="flaticon-right-arrow"></span></a>
+                </div>
+             </div>
+          </div>
+          <div class="price-block col-lg-3 col-md-6 col-sm-12">
+             <div class="inner-box">
+                <div class="upper-box">
+                   <h3>Labs, X-Rays & <br> Screenings</h3>
+                </div>
+                <div class="middle-box">
+                   <p class="text">Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="lower-box">
+                   <div class="price">$35.00</div>
+                   <div class="package-plan">Per Yearly</div>
+                   <a href="#" class="theme-btn book-btn">Book now <span class="flaticon-right-arrow"></span></a>
+                </div>
+             </div>
+          </div>
+          <div class="price-block col-lg-3 col-md-6 col-sm-12">
+             <div class="inner-box">
+                <div class="upper-box">
+                   <h3>Emergency Room <br> & Coverage</h3>
+                </div>
+                <div class="middle-box">
+                   <p class="text">Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="lower-box">
+                   <div class="price">$65.00</div>
+                   <div class="package-plan">Per Yearly</div>
+                   <a href="#" class="theme-btn book-btn">Book now <span class="flaticon-right-arrow"></span></a>
+                </div>
              </div>
           </div>
        </div>
     </div>
-    <!-- .builder-content -->
- </div>
+</section>
+
+<section class="testimonial-section">
+   <div class="container">
+      <div class="section-title text-center">
+         <h2>Service Recipient Says</h2>
+      </div>
+      <div class="testimonials-carousel owl-carousel owl-theme">
+         <div class="testimonial-block">
+            <div class="inner-box">
+               <div class="content-box">
+                  <div class="quote-icon icon-quote2"></div>
+                  <p class="text">Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious.</p>
+                  <h3>Kolis Muller</h3>
+                  <div class="designation">NY Citizen</div>
+               </div>
+               <div class="image-box">
+                  <img src="{{ asset('front/asset/images/resource/author-2.png')}}" alt />
+               </div>
+            </div>
+         </div>
+         <div class="testimonial-block">
+            <div class="inner-box">
+               <div class="content-box">
+                  <div class="quote-icon icon-quote2"></div>
+                  <p class="text">Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious.</p>
+                  <h3>Kolis Muller</h3>
+                  <div class="designation">NY Citizen</div>
+               </div>
+               <div class="image-box">
+                  <img src="{{ asset('front/asset/images/resource/author-3.png')}}" alt />
+               </div>
+            </div>
+         </div>
+         <div class="testimonial-block">
+            <div class="inner-box">
+               <div class="content-box">
+                  <div class="quote-icon icon-quote2"></div>
+                  <p class="text">Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious.</p>
+                  <h3>Kolis Muller</h3>
+                  <div class="designation">NY Citizen</div>
+               </div>
+               <div class="image-box">
+                  <img src="{{ asset('front/asset/images/resource/author-4.png')}}" alt />
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="sponsors-section style-two">
+   <div class="container">
+      <div class="sponsors-outer">
+         <ul class="sponsors-carousel owl-carousel owl-theme">
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/1.png')}}" alt></a></figure>
+            </li>
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/2.png')}}" alt></a></figure>
+            </li>
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/3.png')}}" alt></a></figure>
+            </li>
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/4.png')}}" alt></a></figure>
+            </li>
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/5.png')}}" alt></a></figure>
+            </li>
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/1.png')}}" alt></a></figure>
+            </li>
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/2.png')}}" alt></a></figure>
+            </li>
+            <li class="slide-item">
+               <figure class="image-box"><a href="#"><img src="{{ asset('front/asset/images/clients/3.png')}}" alt></a></figure>
+            </li>
+         </ul>
+      </div>
+   </div>
+</section>
+<section class="fullwidth-section-two">
+   <div class="outer-container">
+      <div class="clearfix">
+         <div class="left-column" style="background-image:url({{ asset('front/asset/images/background/5.jpg')}})">
+            <div class="inner-column">
+               <h2>Subscribe to our <br> Newsletter</h2>
+               <div class="subscribe-form">
+                  <form method="post" action="https://html.xpeedstudio.com/medizco/contact.html">
+                     <div class="form-group">
+                        <input type="email" name="email" value placeholder="Enter your mail here" required>
+                        <button type="submit" class="theme-btn subscribe-btn"><span class="icon icon-envelope3"></span> Subscribe</button>
+                     </div>
+                  </form>
+               </div>
+               <p class="text">***We Promise, no spam!</p>
+            </div>
+         </div>
+         <div class="right-column" style="background-image:url({{ asset('front/asset/images/background/6.jpg')}})">
+            <div class="inner-column">
+               <a href="tel:+1-812-243-7969" class="phone">
+               <span class="icon-box flaticon-24-hours"></span>
+               <span class="title">Emergency Medical Care</span><strong>+1-812-243-7969</strong>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
 @endsection

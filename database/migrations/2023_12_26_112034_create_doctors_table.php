@@ -18,17 +18,30 @@ return new class extends Migration
             $table->string('name');
             
             $table->unsignedBigInteger('department_id');
-            $table->string('qualification')->nullable();
-            $table->string('designation')->nullable();
+            $table->string('qualification');
+            $table->string('designation');
             $table->string('institute')->nullable();
+
+            $table->string('speciality')->nullable();
+
             $table->text('biography')->nullable();
             $table->string('phone')->nullable();
-            $table->string('email')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('password')->default(Hash::make('dr123456'));
+
             $table->string('image')->nullable();
+            $table->string('image_2')->nullable();
+            $table->string('image_3')->nullable();
+            $table->string('image_4')->nullable();
+            $table->string('chamber_location');
+          
+            $table->text('meta_description')->nullable();
             $table->float('visit_fee')->nullable();
-            $table->unsignedBigInteger('created_by');
+
             $table->text('slug')->unique();
+            
+            $table->unsignedBigInteger('created_by');
+            $table->string('created_by_name');
             
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('department_id')->references('id')->on('departments');
