@@ -50,7 +50,7 @@
                   <div class="inner-column">
                      <h2>Subscribe to our <br> Newsletter</h2>
                      <div class="subscribe-form">
-                        <form method="post" action="https://html.xpeedstudio.com/medizco/contact.html">
+                        <form method="post" action="">
                            <div class="form-group">
                               <input type="email" name="email" value placeholder="Enter your mail here" required>
                               <button type="submit" class="theme-btn subscribe-btn"><span class="icon icon-envelope3"></span> Subscribe</button>
@@ -64,7 +64,7 @@
                   <div class="inner-column">
                      <a href="tel:+1-812-243-7969" class="phone">
                      <span class="icon-box flaticon-24-hours"></span>
-                     <span class="title">Emergency Medical Care</span><strong>+1-812-243-7969</strong>
+                     <span class="title">Emergency Medical Care</span><strong>{{ $site_setting->phone }}</strong>
                      </a>
                   </div>
                </div>
@@ -91,7 +91,9 @@
                   <div class="sidebar-info-contents">
                      <div class="content-inner">
                         <div class="logo">
-                           <a href="index-2.html"><img src="{{ asset('front/asset/images/logo-2.png')}}" alt /></a>
+                           {{-- <a href="index-2.html"><img src="{{ asset('front/asset/images/logo-2.png')}}" alt /></a> --}}
+                           <a href="{{ url('/') }}"><img style="background-color:white;" src="{{ asset($site_setting->logo_header)}}" alt /></a>
+
                         </div>
                         <div class="content-box">
                            <h2>About Us</h2>
@@ -101,18 +103,18 @@
                         <div class="contact-info">
                            <h2>Contact Info</h2>
                            <ul class="list-style-one">
-                              <li><span class="icon flaticon-map-1"></span>Rock St 12, Newyork City, USA</li>
-                              <li><span class="icon flaticon-telephone"></span>(000) 000-000-0000</li>
-                              <li><span class="icon flaticon-letter"></span><a href="https://html.xpeedstudio.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aee3cbcac7d4cdc1eec9c3cfc7c280cdc1c3">[email&#160;protected]</a></li>
+                              <li><span class="icon flaticon-map-1"></span>{{ $site_setting->address }}</li>
+                              <li><span class="icon flaticon-telephone"></span>{{ $site_setting->phone }}</li>
+                              <li><span class="icon flaticon-letter"></span>{{ $site_setting->email }}</li>
                               <li><span class="icon flaticon-clock-2"></span>Week Days: 09.00 to 18.00 Sunday: Closed</li>
                            </ul>
                         </div>
                         <ul class="social-box">
-                           <li class="facebook"><a href="#" class="icon icon-facebook"></a></li>
+                           <li class="facebook"><a href="{{ $site_setting->facebook_id }}" class="icon icon-facebook"></a></li>
                            <li class="twitter"><a href="#" class="icon icon-twitter"></a></li>
-                           <li class="linkedin"><a href="#" class="icon icon-linkedin"></a></li>
-                           <li class="instagram"><a href="#" class="icon icon-instagram"></a></li>
-                           <li class="youtube"><a href="#" class="icon icon-youtube"></a></li>
+                           <li class="linkedin"><a href="{{ $site_setting->linkedin_id }}" class="icon icon-linkedin"></a></li>
+                           <li class="instagram"><a href="{{ $site_setting->instagram_id }}" class="icon icon-instagram"></a></li>
+                           <li class="youtube"><a href="{{ $site_setting->youtube_id }}" class="icon icon-youtube"></a></li>
                         </ul>
                      </div>
                   </div>

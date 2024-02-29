@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('image_3')->nullable();
             $table->string('image_4')->nullable();
             $table->string('chamber_location');
-          
+            
             $table->text('meta_description')->nullable();
             $table->float('visit_fee')->nullable();
 
@@ -43,9 +43,12 @@ return new class extends Migration
             $table->unsignedBigInteger('created_by');
             $table->string('created_by_name');
             
+            $table->boolean('isHomePage')->default(0);
+
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('department_id')->references('id')->on('departments');
 
+        
             $table->timestamps();
         });
     }

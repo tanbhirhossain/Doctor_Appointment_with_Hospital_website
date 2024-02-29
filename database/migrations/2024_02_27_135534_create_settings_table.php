@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             //logo
-            $table->string('logo_header');
+            $table->string('logo_header')->nullable();
             $table->string('logo_bottom')->nullable();
             $table->string('logo_navbar')->nullable();
 

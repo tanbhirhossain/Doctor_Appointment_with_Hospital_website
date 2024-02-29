@@ -3,7 +3,9 @@
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\Front\FrontAppointmentController;
 use App\Http\Controllers\Front\FrontDoctorController;
+use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\Route;
 
@@ -12,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/get-doctor-timetable', [FrontDoctorController::class, 'getDoctorTimetable']);
 
 
-Route::get('/', function () {
-    return view('front.pages.home');
-    // return view('front.layouts.template_doctor');
-});
+Route::get('/',[HomeController::class, 'index'])->name('front.home');
 
 Route::get('/c', function(){
     return view('front.layouts.template_dr_details');
@@ -60,6 +59,9 @@ Route::get('/admin', function(){
 Route::prefix('admin')->group(function (){
     Route::resource('doctors', DoctorController::class);
     // Route::get('/doctors/search', 'DoctorController@search')->name('doctors.search');
+    Route::get('settings/edit', [SettingController::class, 'edit'])->name('settings.edit');
+Route::post('settings/update', [SettingController::class,'update'])->name('settings.update');
+
 
 
 });

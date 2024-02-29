@@ -3,9 +3,9 @@
        <div class="container ">
           <div class="top-outer clearfix">
              <ul class="top-left">
-                <li><a href="tel:+1-(212)-305-2500"><span class="icon flaticon-phone-receiver"></span>Phone: +1 (212) 305-2500</a></li>
+                <li><a href="tel:+1-(212)-305-2500"><span class="icon flaticon-phone-receiver"></span>Phone: {{ $site_setting->phone }}</a></li>
                 <li><span class="icon flaticon-clock-1"></span>Mon-Fri (8am - 6pm)</li>
-                <li><a href="https://html.xpeedstudio.com/cdn-cgi/l/email-protection#761f18101936130e171b061a135815191b"><span class="icon flaticon-letter"></span><span class="__cf_email__" data-cfemail="e0898e868fa08598818d908c85ce838f8d">[email&#160;protected]</span></a></li>
+                <li><a href=""><span class="icon flaticon-letter"></span>{{ $site_setting->email }}</li>
              </ul>
              <div class="top-right clearfix">
                 <div class="cart-btn">
@@ -22,7 +22,14 @@
        <div class="container">
           <div class="xs-navbar clearfix">
              <div class="logo-outer">
-                <div class="logo"><a href="index-2.html"><img src="{{ asset('front/asset/images/logo.png')}}" alt title></a></div>
+                <div class="logo"><a href="index-2.html">
+                  
+                  <img style="width:160px; height: 50px;" src="{{ $site_setting->logo_header }}" alt="Logo Title">
+
+
+               
+               
+               </a></div>
              </div>
              <nav class="elementskit-navbar">
                 <div class="xs-mobile-search">

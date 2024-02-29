@@ -92,7 +92,7 @@
                   <img src="{{ $doctor->image }}" alt />
                   <div class="number-box">
                      <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="play-button" data-fancybox data-caption><i class="ripple"></i><i class="icon flaticon-phone"></i></a>
-                     10699
+                     {{ $site_setting->phone }}
                   </div>
                </div>
             </div>
@@ -172,7 +172,7 @@
                      <tr>
                         <td>{{ $dayMappings[$item->day] ?? $item->day}}</td>
                         <td>{{ $item->start_time ? date('h:i A', strtotime($item->start_time)) : "-" }}</td>
-                        <td>{{ $item->end_time ? date('h:i A', strtotime($item->start_time)) : "-" }}</td>
+                        <td>{{ $item->end_time ? date('h:i A', strtotime($item->end_time)) : "-" }}</td>
                      </tr>
                      @endforeach
                   </tbody>

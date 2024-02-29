@@ -5,7 +5,7 @@
              <div class="footer-column col-lg-6 col-md-6">
                 <div class="footer-widget logo-widget">
                    <div class="logo">
-                      <a href="index-2.html"><img src="{{ asset('front/asset/images/footer-logo.png')}}" alt /></a>
+                      <a  href="{{ route('front.home') }}"><img style="height:60px; width:200px;" src="{{ asset($site_setting->logo_header)}}" alt /></a>
                    </div>
                    <p class="text">Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary</p>
                    <ul class="list-style-two">
