@@ -24,7 +24,7 @@
              <div class="logo-outer">
                 <div class="logo"><a href="index-2.html">
                   
-                  <img style="width:160px; height: 50px;" src="{{ $site_setting->logo_header }}" alt="Logo Title">
+                  <img style="width:190px; height: 60px;" src="{{ $site_setting->logo_header }}" alt="Logo Title">
 
 
                

@@ -60,13 +60,10 @@ class DoctorUpdateRequest extends FormRequest
                 })
         ],
         
-            // 'day.*.start_time' => 'nullable|date_format:H:i',
-            // 'day.*.end_time' => 'nullable|date_format:H:i|after:day.*.start_time',
-         // Ensure correct time format (H:i) for start_time and end_time
-         'day.*.start_time' => 'nullable|date_format:H:i:s',
-         'day.*.end_time' => 'nullable|date_format:H:i:s',
+        'day.*.start_time' => 'nullable|date_format:h:i A',
+        'day.*.end_time' => 'nullable|date_format:h:i A|after:day.*.start_time',
 
-            'day.*.remarks' => 'nullable|string',
+        'day.*.remarks' => 'nullable|string',
         ];
     }
 }

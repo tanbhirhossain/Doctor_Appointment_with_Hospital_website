@@ -42,7 +42,7 @@ class CreateDoctorFormRequest extends FormRequest
             'phone' => 'nullable|string',
             'email' => 'nullable|email',
             'visit_fee' => 'nullable|numeric',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:200',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:600',
             'slug' => 'required|unique:doctors',
             // 'slug' => [
             //     'required',

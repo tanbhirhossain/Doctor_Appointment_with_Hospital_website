@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\Front\FrontAppointmentController;
+use App\Http\Controllers\Front\FrontDepartmentController;
 use App\Http\Controllers\Front\FrontDoctorController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -11,28 +13,24 @@ use Illuminate\Support\Facades\Route;
 
 
 //FRONT ROUTES
+
+
 Route::get('/get-doctor-timetable', [FrontDoctorController::class, 'getDoctorTimetable']);
-
-
 Route::get('/',[HomeController::class, 'index'])->name('front.home');
-
-Route::get('/c', function(){
-    return view('front.layouts.template_dr_details');
-});
-
-Route::get('/doctors', [FrontDoctorController::class, 'index']);
 //Appointments
 Route::post('/doctors/appointments', [FrontAppointmentController::class, 'store'])->name('front.booking.store');
 
 
-
-Route::get('/doctor-check', function(){
-    return view('front.layouts.medicoz_doctor');
-});
+//Doctors
+Route::get('/doctors', [FrontDoctorController::class, 'index']);
 Route::get('/doctors/{slug}', [FrontDoctorController::class, 'show'])->name('doctor.details');
-Route::get('test', function(){
-    return view('front.layouts.template_dr_details');
-});
+
+//Departments
+Route::get('/departments', [FrontDepartmentController::class, 'index'])->name('front.departments');
+Route::get('/departments/{slug}', [FrontDepartmentController::class, 'show'])->name('front.departments.details');
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -60,7 +58,12 @@ Route::prefix('admin')->group(function (){
     Route::resource('doctors', DoctorController::class);
     // Route::get('/doctors/search', 'DoctorController@search')->name('doctors.search');
     Route::get('settings/edit', [SettingController::class, 'edit'])->name('settings.edit');
-Route::post('settings/update', [SettingController::class,'update'])->name('settings.update');
+    Route::post('settings/update', [SettingController::class,'update'])->name('settings.update');
+
+    //Department
+
+    Route::resource('departments', DepartmentController::class);
+
 
 
 

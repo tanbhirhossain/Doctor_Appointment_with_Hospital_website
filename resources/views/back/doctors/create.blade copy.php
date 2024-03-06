@@ -97,54 +97,57 @@
             </div><!-- Grid End -->
     </div>
     <h2 class="mx-7 font-semibold px-3 py-3 text-center  text-gray-700 border border-gray-200 rounded-lg bg-gray-50">Doctor TimeTable</h2>
-    <div id="timetable-container">
-      <!-- Table headers and one initial row -->
-      <table id="timetable" class="w-full text-sm text-left rtl:text-right text-gray-500">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr>
-                  <th scope="col" class="px-6 py-3">Day</th>
-                  <th scope="col" class="px-6 py-3">Start Time</th>
-                  <th scope="col" class="px-6 py-3">End Time</th>
-                  <th scope="col" class="px-6 py-3">Remarks</th>
-              </tr>
-          </thead>
-          <!-- Table body -->
-          <tbody>
-              <!-- Initial row -->
-              <tr class="bg-white border-b hover:bg-gray-50">
-                  <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap">
-                      {{-- <input type="text" value="Saturday" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" readonly>
-                      <input type="hidden" name="day[0][day]" value="Saturday"> --}}
-                      <select name="day[0][day]" id="" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
-                        <option value="sat">Saturday</option>
-                        <option value="sun">Sunday</option>
-                        <option value="mon">Monday</option>
-                        <option value="tue">Tuesday</option>
-                        <option value="wed">Wednesday</option>
-                        <option value="thu">Thursday</option>
-                        <option value="fri">Friday</option>
-                      </select>
-                  </th>
-                  <td class="px-6 py-3">
-                      <input type="time" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" name="day[0][start_time]">
-                  </td>
-                  <td class="px-6 py-3">
-                      <input type="time" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" name="day[0][end_time]">
-                  </td>
-                  <td class="px-6 py-3">
-                      <input type="text" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" name="day[0][remarks]">
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
-  
-  <!-- Add and remove buttons -->
-  <div class="flex justify-center mt-3">
-      <button id="add-row" type="button" class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Add Row</button>
-      <button id="remove-row" type="button" class="bg-red-500 text-white px-4 py-2 rounded-md">Remove Row</button>
-  </div>
-      <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 shadow-lg shadow-green-500/50 font-medium rounded-lg text-sm px-5 py-2.5 my-6 text-center me-2 mb-2 w-full">Create Doctor</button>
+    <div class="py-3 px-7 rounded-md bg-white">
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Day
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Start Time
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            End Time
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Remarks
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php
+                        $days = ['Satarday', 'Sunday', 'Monday', 'Thuesday', 'Wednesday', 'Thursday', 'Friday'];
+                        $dayKeys = ['sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri'];
+                    @endphp
+                
+                @for ($i = 0; $i < count($days); $i++)
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap">
+                        <input type="text" value="{{ $days[$i] }}" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" readonly>
+                        <input value="{{ $dayKeys[$i] }}" type="hidden" name="day[{{ $i }}][day]" readonly>
+                    </th>
+                    <td class="px-6 py-3">
+                        <input value="{{ old("start_time[$i]") }}" type="time" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" name="day[{{ $i }}][start_time]" id="">
+                    </td>
+                    <td class="px-6 py-3">
+                        <input value="{{ old("end_time[$i]") }}" type="time" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" name="day[{{ $i }}][end_time]" id="">
+                    </td>
+                    <td class="px-6 py-3">
+                        <input value="{{ old("remarks[$i]") }}" type="test" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700" name="day[{{ $i }}][remarks]" id="">
+                    </td>
+                </tr>
+            @endfor
+            
+                </tbody>
+                
+            </table>
+        </div>
+        
+
+            <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 shadow-lg shadow-green-500/50 font-medium rounded-lg text-sm px-5 py-2.5 my-6 text-center me-2 mb-2 w-full">Create Doctor</button>
         </div>
 
 </form>
@@ -163,10 +166,17 @@
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     });
+
+  
+
     
 });
 
 </script>
+
+
+
+
 
 
 <script>
@@ -181,87 +191,6 @@
       document.getElementById('slug').value = slugValue;
     });
   </script>
-
-<script>
- document.addEventListener('DOMContentLoaded', function () {
-    // Function to add a new row to the timetable
-    function addRow() {
-        const days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-        const tbody = document.querySelector('#timetable tbody');
-        const newRow = document.createElement('tr');
-        newRow.classList.add('bg-white', 'border-b', 'hover:bg-gray-50');
-
-        // Input for day (select element)
-        const dayCell = document.createElement('th');
-        dayCell.scope = 'row';
-        dayCell.classList.add('px-6', 'py-3', 'font-medium', 'text-gray-900', 'whitespace-nowrap');
-        const daySelect = document.createElement('select');
-        daySelect.classList.add('w-full', 'border', 'border-gray-300', 'rounded-md', 'py-2', 'px-3', 'focus:outline-none', 'focus:border-blue-700');
-        daySelect.name = 'day[' + tbody.children.length + '][day]'; // Dynamically set the name attribute
-        days.forEach((day, index) => {
-            const option = document.createElement('option');
-            option.value = day.toLowerCase().substring(0, 3); // Using lowercase abbreviated day names
-            option.textContent = day;
-            daySelect.appendChild(option);
-        });
-        dayCell.appendChild(daySelect);
-
-        // Input for start time
-        const startTimeCell = document.createElement('td');
-        startTimeCell.classList.add('px-6', 'py-3');
-        const startTimeInput = document.createElement('input');
-        startTimeInput.type = 'time';
-        startTimeInput.classList.add('w-full', 'border', 'border-gray-300', 'rounded-md', 'py-2', 'px-3', 'focus:outline-none', 'focus:border-blue-700');
-        startTimeInput.name = 'day[' + tbody.children.length + '][start_time]'; // Dynamically set the name attribute
-        startTimeCell.appendChild(startTimeInput);
-
-        // Input for end time
-        const endTimeCell = document.createElement('td');
-        endTimeCell.classList.add('px-6', 'py-3');
-        const endTimeInput = document.createElement('input');
-        endTimeInput.type = 'time';
-        endTimeInput.classList.add('w-full', 'border', 'border-gray-300', 'rounded-md', 'py-2', 'px-3', 'focus:outline-none', 'focus:border-blue-700');
-        endTimeInput.name = 'day[' + tbody.children.length + '][end_time]'; // Dynamically set the name attribute
-        endTimeCell.appendChild(endTimeInput);
-
-        // Input for remarks
-        const remarksCell = document.createElement('td');
-        remarksCell.classList.add('px-6', 'py-3');
-        const remarksInput = document.createElement('input');
-        remarksInput.type = 'text';
-        remarksInput.classList.add('w-full', 'border', 'border-gray-300', 'rounded-md', 'py-2', 'px-3', 'focus:outline-none', 'focus:border-blue-700');
-        remarksInput.name = 'day[' + tbody.children.length + '][remarks]'; // Dynamically set the name attribute
-        remarksCell.appendChild(remarksInput);
-
-        // Append cells to the new row
-        newRow.appendChild(dayCell);
-        newRow.appendChild(startTimeCell);
-        newRow.appendChild(endTimeCell);
-        newRow.appendChild(remarksCell);
-
-        // Append the new row to the table body
-        tbody.appendChild(newRow);
-    }
-
-    // Function to remove the last row from the timetable
-    function removeRow() {
-        const tbody = document.querySelector('#timetable tbody');
-        const rows = tbody.querySelectorAll('tr');
-        if (rows.length > 1) {
-            tbody.removeChild(rows[rows.length - 1]);
-        }
-    }
-
-    // Add event listeners to the add and remove buttons
-    document.getElementById('add-row').addEventListener('click', addRow);
-    document.getElementById('remove-row').addEventListener('click', removeRow);
-});
-
-</script>
-
-
-
-
  
 
 @endsection

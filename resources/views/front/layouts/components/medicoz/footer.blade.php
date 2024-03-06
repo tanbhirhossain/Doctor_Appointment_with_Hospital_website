@@ -9,9 +9,13 @@
                    </div>
                    <p class="text">Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary</p>
                    <ul class="list-style-two">
-                      <li><a href="contact.html#map-location"><span class="icon  flaticon-map-pin-marked"></span>29 Union Square W <br> New York, NY 10003, USA</a></li>
-                      <li><a href="tel:+1-212-243-7969"><span class="icon flaticon-phone"></span>+1-212-243-7969</a></li>
-                      <li><a href="https://html.xpeedstudio.com/cdn-cgi/l/email-protection#82ebece4edc2e7fae3eff2eee7ace1edef"><span class="icon flaticon-mail"></span><span class="__cf_email__" data-cfemail="83eaede5ecc3e6fbe2eef3efe6ade0ecee">[email&#160;protected]</span></a></li>
+                      <li><a href="contact.html#map-location"><span class="icon  flaticon-map-pin-marked"></span>{!! preg_replace('/(,[^,]*,[^,]*),/', '$1<br>', $site_setting->address) !!}
+
+
+
+                      </li>
+                      <li><a href="tel:{{ $site_setting->phone }}"><span class="icon flaticon-phone"></span>{{ $site_setting->phone }}</a></li>
+                      <li><a href=""><span class="icon flaticon-mail"></span>{{ $site_setting->email }}</a></li>
                    </ul>
                 </div>
              </div>
@@ -34,13 +38,13 @@
                 <div class="footer-widget times-widget">
                    <h2>We’re Avtailable</h2>
                    <ul class="time-list">
-                      <li>Monday :<span>08.00 - 10.00</span></li>
-                      <li>Tuesday :<span>08.00 - 10.00</span></li>
-                      <li>Wednesday :<span>08.00 - 10.00</span></li>
-                      <li>Tuesday :<span>08.00 - 10.00</span></li>
-                      <li>Thursday :<span>08.00 - 10.00</span></li>
-                      <li>Friday :<span>09.00 - 07.00</span></li>
-                      <li>Saturday :<span>10.00 - 05.00</span></li>
+                      <li>Monday :<span>24 Hours</span></li>
+                      <li>Tuesday :<span>24 Hours</span></li>
+                      <li>Wednesday :<span>24 Hours</span></li>
+                      <li>Tuesday :<span>24 Hours</span></li>
+                      <li>Thursday :<span>24 Hours</span></li>
+                      <li>Friday :<span>24 Hours</span></li>
+                      <li>Saturday :<span>24 Hours</span></li>
                    </ul>
                 </div>
              </div>
@@ -51,15 +55,15 @@
        <div class="container">
           <div class="clearfix">
              <div class="pull-left">
-                <p class="copyright">&copy; 2019, Medizco Center. All Rights Reserved.</p>
+                <p class="copyright">&copy; 2024, AMZ Hospital Ltd. All Rights Reserved.</p>
              </div>
              <div class="pull-right">
                 <ul class="social-box">
-                   <li class="messanger"><a href="#"><span class="icon flaticon-messenger"></span> medizco.center</a></li>
-                   <li class="facebook"><a href="#" class="icon icon-facebook"></a></li>
-                   <li class="linkedin"><a href="#" class="icon icon-linkedin"></a></li>
-                   <li class="twitter"><a href="#" class="icon icon-twitter"></a></li>
-                   <li class="youtube"><a href="#" class="icon icon-youtube"></a></li>
+                   <li class="messanger"><a href="#"><span class="icon flaticon-messenger"></span> AMZ Hospital Ltd</a></li>
+                   <li class="facebook"><a href="{{ $site_setting->fb_id }}" class="icon icon-facebook"></a></li>
+                   <li class="linkedin"><a href="{{ $site_setting->linkedin_id }}" class="icon icon-linkedin"></a></li>
+                   <li class="twitter"><a href="{{ $site_setting->twitter_id }}" class="icon icon-twitter"></a></li>
+                   <li class="youtube"><a href="{{ $site_setting->youtube_id }}" class="icon icon-youtube"></a></li>
                 </ul>
              </div>
           </div>

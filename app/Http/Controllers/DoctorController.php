@@ -6,11 +6,13 @@ use App\Models\Doctor;
 use App\Models\Timetable;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\CreateDoctorFormRequest;
-use App\Http\Requests\DoctorUpdateRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\DoctorUpdateRequest;
+use App\Http\Requests\CreateDoctorFormRequest;
 
 class DoctorController extends Controller
 {
@@ -35,62 +37,75 @@ class DoctorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(CreateDoctorFormRequest $request)
     {  
-        //  dd($request->all()); 
-        $validated = $request->validated();
-        // dd($validated['day']);
-
-        if($request->hasFile('image')){
-            $image = $request->file('image');
-            $path = $image->store('public/doctors');
-            $url = Storage::url($path);
-            $validated['image'] = $url;
-        }
-
-        $doctor = Doctor::create([
-            'name' => $validated['name'],
-            
-            'department_id' => $validated['department_id'],
-            'qualification' => $validated['qualification'],
-            'speciality' => $validated['speciality'],
-            'chamber_location' => $validated['chamber_location'],
-            'meta_description' => $validated['meta_description'],
-
-            'designation' => $validated['designation'],
-            'institute' => $validated['institute'],
-            'biography' => $validated['biography'],
-            'phone' => $validated['phone'],
-            'email' => $validated['email'],
-            'visit_fee' => $validated['visit_fee'],
-            'image' => $validated['image'],
-            'slug' => $validated['slug'],
-            'created_by' => 1,
-            'created_by_name' => 'TANBHIR'
-        ]);
-        
-
-        foreach ($request->day as $key => $dayData) {
-            $timetable = new Timetable();
-            $timetable->doctor_id = $doctor->id; // Replace with the actual way you get the doctor ID
-            $timetable->day = $dayData['day'];  // Use the correct key for the day value
-            $timetable->start_time = $dayData['start_time'];
-            $timetable->end_time = $dayData['end_time'];
-            $timetable->remarks = $dayData['remarks'];
-            $timetable->created_by = 1;
-            $timetable->save();
-        }
-
-        if ($doctor) {
+        try {
+            DB::beginTransaction();
+    
+            // Validating the request
+            $validated = $request->validated();
+    
+            // Uploading image if exists
+            if($request->hasFile('image')){
+                $image = $request->file('image');
+                $path = $image->store('public/doctors');
+                $url = Storage::url($path);
+                $validated['image'] = $url;
+            }
+    
+            // Creating the doctor
+            $doctor = Doctor::create([
+                'name' => $validated['name'],
+                'department_id' => $validated['department_id'],
+                'qualification' => $validated['qualification'],
+                'speciality' => $validated['speciality'],
+                'chamber_location' => $validated['chamber_location'],
+                'meta_description' => $validated['meta_description'],
+                'designation' => $validated['designation'],
+                'institute' => $validated['institute'],
+                'biography' => $validated['biography'],
+                'phone' => $validated['phone'],
+                'email' => $validated['email'],
+                'visit_fee' => $validated['visit_fee'],
+                'image' => $url ?? null, // Handle the case where $url is not defined
+                'slug' => $validated['slug'],
+                'created_by' => 1,
+                'created_by_name' => 'TANBHIR'
+            ]);
+    
+            // Creating timetable entries
+            foreach ($request->day as $key => $dayData) {
+                $timetable = new Timetable();
+                $timetable->doctor_id = $doctor->id; // Replace with the actual way you get the doctor ID
+                $timetable->day = $dayData['day'];  // Use the correct key for the day value
+                $timetable->start_time = $dayData['start_time'];
+                $timetable->end_time = $dayData['end_time'];
+                $timetable->remarks = $dayData['remarks'];
+                $timetable->created_by = 1;
+                $timetable->save();
+            }
+    
+            // If everything is successful, commit the transaction
+            DB::commit();
+    
             // Doctor created successfully
             Alert::success('Success', 'Doctor Successfully created')->persistent(true, false);
             return redirect()->back()->with('success', 'Doctor Successfully created');
-        } else {
+    
+        } catch (\Exception $e) {
+            // If an exception occurs, rollback the transaction
+            DB::rollback();
+    
+            // Log the error or handle it as needed
+            Log::error($e);
+    
             // Doctor creation failed
             Alert::error('Error', 'Failed to create Doctor')->persistent(true, false);
             return redirect()->back()->with('error', 'Failed to create Doctor');
         }
     }
+    
 
     /**
      * Display the specified resource.
@@ -114,62 +129,62 @@ class DoctorController extends Controller
      * Update the specified resource in storage.
      */
     public function update(DoctorUpdateRequest $request, $id)
-{
-    $validated = $request->validated();
+    {
+        $validated = $request->validated();
 
-    // Check if 'image' key exists in the validated data
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $path = $image->store('public/doctors');
-        $url = Storage::url($path);
-        $validated['image'] = $url;
-    }
-
-    $doctor = Doctor::find($id);
-
-    $doctorData = [
-        'name' => $validated['name'],
-        'department_id' => $validated['department_id'],
-        'qualification' => $validated['qualification'],
-        'speciality' => $validated['speciality'],
-        'chamber_location' => $validated['chamber_location'],
-        'meta_description' => $validated['meta_description'],
-        'designation' => $validated['designation'],
-        'institute' => $validated['institute'],
-        'biography' => $validated['biography'],
-        'phone' => $validated['phone'],
-        'email' => $validated['email'],
-        'visit_fee' => $validated['visit_fee'],
-        'created_by' => 1,
-        'created_by_name' => 'TANBHIR'
-    ];
-
-    // Add 'image' key only if it exists in the validated data
-    if (array_key_exists('image', $validated)) {
-        $doctorData['image'] = $validated['image'];
-    }
-
-    // Update doctor data
-    $updated = $doctor->update($doctorData);
-
-    if ($updated) {
-        // Update timetable entries
-        foreach ($request->day as $key => $dayData) {
-            $timetable = Timetable::updateOrCreate(
-                ['doctor_id' => $doctor->id, 'day' => $dayData['day']],
-                ['start_time' => $dayData['start_time'], 'end_time' => $dayData['end_time'], 'remarks' => $dayData['remarks']]
-            );
+        // Check if 'image' key exists in the validated data
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('public/doctors');
+            $url = Storage::url($path);
+            $validated['image'] = $url;
         }
 
-        // Doctor updated successfully
-        Alert::success('Success', 'Doctor Successfully Updated')->persistent(true, false);
-        return redirect()->back()->with('success', 'Doctor Successfully Updated');
-    } else {
-        // Failed to update doctor
-        Alert::error('Error', 'Failed to update Doctor')->persistent(true, false);
-        return redirect()->back()->with('error', 'Failed to update Doctor');
+        $doctor = Doctor::find($id);
+
+        $doctorData = [
+            'name' => $validated['name'],
+            'department_id' => $validated['department_id'],
+            'qualification' => $validated['qualification'],
+            'speciality' => $validated['speciality'],
+            'chamber_location' => $validated['chamber_location'],
+            'meta_description' => $validated['meta_description'],
+            'designation' => $validated['designation'],
+            'institute' => $validated['institute'],
+            'biography' => $validated['biography'],
+            'phone' => $validated['phone'],
+            'email' => $validated['email'],
+            'visit_fee' => $validated['visit_fee'],
+            'created_by' => 1,
+            'created_by_name' => 'TANBHIR'
+        ];
+
+        // Add 'image' key only if it exists in the validated data
+        if (array_key_exists('image', $validated)) {
+            $doctorData['image'] = $validated['image'];
+        }
+
+        // Update doctor data
+        $updated = $doctor->update($doctorData);
+
+        if ($updated) {
+            // Update timetable entries
+            foreach ($request->day as $key => $dayData) {
+                $timetable = Timetable::updateOrCreate(
+                    ['doctor_id' => $doctor->id, 'day' => $dayData['day']],
+                    ['start_time' => $dayData['start_time'], 'end_time' => $dayData['end_time'], 'remarks' => $dayData['remarks']]
+                );
+            }
+
+            // Doctor updated successfully
+            Alert::success('Success', 'Doctor Successfully Updated')->persistent(true, false);
+            return redirect()->back()->with('success', 'Doctor Successfully Updated');
+        } else {
+            // Failed to update doctor
+            Alert::error('Error', 'Failed to update Doctor')->persistent(true, false);
+            return redirect()->back()->with('error', 'Failed to update Doctor');
+        }
     }
-}
 
 
     /**

@@ -11,18 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('health_packages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('slug');
+            $table->string('type');
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
-            $table->string('icon')->nullable();
-    
-            $table->unsignedBigInteger('parent_id')->nullable();
-            $table->unsignedBigInteger('created_by');
+            $table->string('icon');
+            $table->unsignedBigInteger('created_by')->nullable();
 
-            $table->foreign('parent_id')->references('id')->on('departments');
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('health_packages');
     }
 };

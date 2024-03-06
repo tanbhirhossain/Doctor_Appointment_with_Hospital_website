@@ -167,7 +167,7 @@
             </div>
          </section>
     
-         <section class="emergency-section" style="background-image:url(images/background/3.jpg)">
+         <section class="emergency-section" style="background-image:url({{ asset('front/asset/images/background/3.jpg')}})">
             <div class="container">
                <div class="row">
                   <div class="col-lg-6 col-md-12">

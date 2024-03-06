@@ -16,7 +16,8 @@
                 </svg>
             </button>
 
-            <button type="button" class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Cyan to Blue</button>
+            <a href="{{ route('departments.create') }}" class="ml-8 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Create Department</a>
+
             <!-- Dropdown menu -->
             <div id="dropdownAction" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownActionButton">
@@ -58,21 +59,17 @@
                     Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Qualification
+                    Description
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Designation
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Speciality
-                </th>
+               
+              
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
         </thead>
         <tbody id="doctorsTableBody">
-            @foreach ($doctors as $item)
+            @foreach ($departments as $item)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="w-4 p-4">
                         <div class="flex items-center">
@@ -81,24 +78,21 @@
                         </div>
                     </td>
                     <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                        <img class="w-10 h-10 rounded-full" src="{{ $item->image ?? "" }}" alt="Jese image">
+                        <img class="w-10 h-10 rounded-full" src="{{ $item->icon ?? "" }}" alt="Jese image">
                         <div class="ps-3">
                             <div class="text-base font-semibold">{{ $item->name }}</div>
-                            <div class="font-normal text-gray-500">{{ $item->email ?? "" }}</div>
+                            {{-- <div class="font-normal text-gray-500">{{ $item->email ?? "" }}</div> --}}
                         </div>  
                     </th>
                     <td class="px-6 py-4">
-                        {{ $item->qualification }}
+                        {{ Str::limit($item->description, 260) }}
                     </td>
-                    <td class="px-6 py-4">
-                        {{ $item->designation }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $item->speciality }}
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="{{ route('doctors.edit', $item->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <a href="{{ route('doctors.destroy', $item->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                
+               
+                    <td class="px-6 py-4 flex">
+                        <a  href="{{ route('departments.edit', $item->id) }}" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit</a>
+
+                        <a href="{{ route('departments.destroy', $item->id) }}" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                             onclick="event.preventDefault();
                             if(confirm('Are you sure you want to delete this doctor?')) {
                                 document.getElementById('delete-form-{{ $item->id }}').submit();
@@ -117,7 +111,7 @@
         </tbody>
     </table>
     <!-- Pagination links -->
-    {{ $doctors->links() }}
+    {{-- {{ $departments->links() }} --}}
 </div>
 @endsection
 
